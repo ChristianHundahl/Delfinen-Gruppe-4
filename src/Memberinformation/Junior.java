@@ -2,11 +2,13 @@ package Memberinformation;
 //@Emilia
 
 public class Junior extends Membership{
+    private double price = 1000;
 
-    @Override
-    public double calculatePrice(){
-        double price = 1000;
-        return price;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
+    public double getPrice(){
+        return this.price;
+    }
 }

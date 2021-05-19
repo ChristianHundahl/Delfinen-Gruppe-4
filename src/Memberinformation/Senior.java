@@ -2,9 +2,13 @@ package Memberinformation;
 //@Emilia
 
 public class Senior extends Membership{
-    @Override
-    public double calculatePrice(){
-        double price = 1600;
-        return price;
+    private double price = 1600;
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice(){
+        return this.price;
     }
 }

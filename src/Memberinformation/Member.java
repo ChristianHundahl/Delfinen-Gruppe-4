@@ -6,18 +6,19 @@ public abstract class Member{
     private int age;
     private boolean isOver60;
     private boolean isInArrears;
+    private String activity;
 
-    public static void member(String name, int age, boolean isOver60, boolean isInArrears){
+    public static void member(String name, int age, String activity){
         name = name;
         age = age;
-        isInArrears = false;
-        isOver60 = false;
-        if (age >= 60){
-            isOver60 = true;
-        }
-
     }
 
-    public abstract double calculatePrice();
-
+    public double calculatePrice(){
+        double totalPrice;
+        if (this.age >= 60){
+            totalPrice = totalPrice*0.75;
+        }
+        return totalPrice;
+    }
 }
+

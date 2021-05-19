@@ -2,9 +2,13 @@ package Memberinformation;
 //@Emilia
 
 public class Passive extends Membership{
-    @Override
-    public double calculatePrice(){
-        double price = 500;
-        return price;
+    private double price = 500;
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice(){
+        return this.price;
     }
 }
