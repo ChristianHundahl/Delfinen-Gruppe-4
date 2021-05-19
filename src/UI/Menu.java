@@ -32,6 +32,9 @@ public class Menu {
         int userInput = in.nextInt();
         return userInput;
     }
+    public void showMembersInArrears(){
+        System.out.println("Members in arrears: ");
+    }
 }
 
 //Userinput
