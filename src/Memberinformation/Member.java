@@ -13,12 +13,12 @@ public abstract class Member{
         age = age;
     }
 
-    public double calculatePrice(){
+    public double calculatePrice(int age){
         double totalPrice;
+        double price = getPrice();
         if (this.age >= 60){
             totalPrice = totalPrice*0.75;
         }
         return totalPrice;
     }
 }
-
