@@ -1,4 +1,4 @@
 package Memberinformation;
 
-public class Junior {
+public class Membership {
 }
