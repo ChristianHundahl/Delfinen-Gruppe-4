@@ -22,6 +22,9 @@ public class Controller {
                     break;
                 case 3:
                     menu.showManageSwimTimesMenu();
+                    while (userInput != 1){
+                        userInput = menu.fetchUserInput();
+                    }
                     break;
                 case 4:
                     menu.showManageEconomicsMenu();
