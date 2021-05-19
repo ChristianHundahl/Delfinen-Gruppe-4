@@ -1,4 +1,5 @@
 package Memberinformation;
+//@Emilia
 
-public class Passive {
+public class Passive extends Membership{
 }

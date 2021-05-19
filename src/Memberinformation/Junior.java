@@ -1,4 +1,5 @@
 package Memberinformation;
+//@Emilia
 
-public class Junior {
+public class Junior extends Membership{
 }

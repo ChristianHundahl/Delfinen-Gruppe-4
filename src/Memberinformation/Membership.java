@@ -1,4 +1,6 @@
 package Memberinformation;
+//@Emilia
 
-public class Membership {
+public abstract class Membership {
+    private double price;
 }
