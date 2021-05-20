@@ -9,10 +9,9 @@ public class Member{
     private boolean isInArrears;
     private Membership activity;
 
-    public Member(String name, int age, Membership activity){
+    public Member(String name, int age){
         this.name = name;
         this.age = age;
-        this.activity = activity;
         setOver60();
     }
 

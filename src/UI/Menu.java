@@ -1,10 +1,9 @@
 package UI;
 //@Daniell, @Emilia
 
-import Memberinformation.Junior;
-import Memberinformation.Member;
-import Memberinformation.Membership;
+import Memberinformation.*;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Menu {
@@ -19,28 +18,34 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
-    //ToDo
     public void registerNewMemberMenu(){
         System.out.println("Enter full name: ");
         String tempName = in.nextLine();
         System.out.println("Enter age: ");
         int tempAge = Integer.parseInt(in.nextLine());
+
+        Member newMember = new Member(tempName, tempAge);
+        System.out.println("New member registered");
+
         System.out.println("Choose membership:");
         System.out.println("Press 1 for Junior membership");
         System.out.println("Press 2 for Senior membership");
         System.out.println("Press 3 for Passive membership");
         int tempAnswer = Integer.parseInt(in.nextLine());
         if (tempAnswer == 1){
-            //Membership tempActivity = new Junior();  //Fjern parametrer fra class
+            Junior tempActivity = new Junior();
+            newMember.setActivity(tempActivity);
             }
         if (tempAnswer == 2){
-            //Membership tempActivity = new Senior();
+            Senior tempActivity = new Senior();
+            newMember.setActivity(tempActivity);
         }
         if (tempAnswer == 3){
-            //Membership tempActivity = new Passive();
+            Passive tempActivity = new Passive();
+            newMember.setActivity(tempActivity);
         }
-        //Member newMember = new Member();
-        System.out.println("New member registered");
+        System.out.println("Registration complete.");
+
     }
     //ToDo
     public void manageExistingMemberMenu(){
