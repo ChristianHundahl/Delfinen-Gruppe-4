@@ -10,7 +10,7 @@ public class Passive extends Membership{
         this.setActivity("Passive");
     }
 
-    public Passive(){}
+    public Passive() throws FileNotFoundException{}
 
     @Override
     public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan

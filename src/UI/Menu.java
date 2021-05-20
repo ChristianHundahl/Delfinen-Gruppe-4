@@ -33,10 +33,33 @@ public class Menu {
         System.out.println("Press 2 for Senior membership");
         System.out.println("Press 3 for Passive membership");
         int tempAnswer = Integer.parseInt(in.nextLine());
-        if (tempAnswer == 1){
-            Junior tempActivity = new Junior();
-            newMember.setActivity(tempActivity);
+
+        Membership newMembership = null;
+
+        try{
+            switch(tempAnswer){
+                case 1 -> newMembership = new Junior();
+                case 2 -> newMembership = new Senior();
+                case 3 -> newMembership = new Passive();
             }
+        }
+        catch(FileNotFoundException e){
+            System.out.println("Could not find file");
+            //Hvad skal der ske
+        }
+
+        /*if (tempAnswer == 1){
+            Junior tempActivity = null;
+
+            try{
+                tempActivity = new Junior();
+            }
+            catch(FileNotFoundException e){
+                System.out.println("Cannot find file - terminating the program");
+            }
+            newMember.setActivity(tempActivity);
+
+        }
         if (tempAnswer == 2){
             Senior tempActivity = new Senior();
             newMember.setActivity(tempActivity);
@@ -45,7 +68,9 @@ public class Menu {
             Passive tempActivity = new Passive();
             newMember.setActivity(tempActivity);
         }
-        System.out.println("Registration complete.");
+        System.out.println("Registration complete.");*
+
+        */
 
     }
     //ToDo

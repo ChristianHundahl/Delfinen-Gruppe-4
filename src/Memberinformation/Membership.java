@@ -17,14 +17,12 @@ public abstract class Membership {
     private String activity;
     private FileManager fm;
     Scanner sc;
-    {
-        assert fm != null;
-        sc = fm.getPriceSc();
-    }
 
-    public Membership(String activity, double price){
+    public Membership(String activity, double price) throws FileNotFoundException {
         this.activity = activity;
         this.price = price;
+        this.fm = new FileManager();
+        this.sc = fm.getPriceSc();
     }
 
     public Membership(){}
