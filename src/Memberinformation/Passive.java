@@ -1,16 +1,12 @@
 package Memberinformation;
 //@Emilia
-
 import FileHandler.FileManager;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Passive extends Membership{
-    private FileManager fm = new FileManager();
-    Scanner sc = fm.getPriceSc();
-
-    public Passive(String activity, double price) {
-        super(activity, price);
+//@Christian
+    public Passive(String activity, double price, FileManager fm) throws FileNotFoundException {
+        super(activity, price, fm);
         this.setActivity("Passive");
     }
 
@@ -19,10 +15,11 @@ public class Passive extends Membership{
         while(sc.hasNextLine()){
             String currentLine = sc.nextLine();
             String[] lineAsArray = currentLine.split(";");
-            if(lineAsArray[0].equals("Junior")){
+            if(lineAsArray[0].equals("Passive")){
                 int juniorPrice = Integer.parseInt(lineAsArray[1]);
                 return juniorPrice;
             }
+            break;
         }
         return 0;
     }

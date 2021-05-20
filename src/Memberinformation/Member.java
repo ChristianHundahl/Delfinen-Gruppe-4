@@ -2,6 +2,7 @@ package Memberinformation;
 //@Emilia
 
 public class Member{
+//@Christian
     private String name;
     private int age;
     private boolean isOver60;
