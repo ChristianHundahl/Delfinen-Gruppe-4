@@ -16,7 +16,7 @@ public abstract class Membership {
         this.price = price;
     }
 
-    public abstract double calculateMembershipFee();
+    public abstract double readMembershipFeeFromFile();
 
     public void setActivity(String activity) {
         this.activity = activity;
