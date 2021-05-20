@@ -11,13 +11,13 @@ public class Passive extends Membership{
     }
 
     @Override
-    public double readMembershipFeeFromFile() throws FileNotFoundException {
+    public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan
         while(sc.hasNextLine()){
             String currentLine = sc.nextLine();
             String[] lineAsArray = currentLine.split(";");
             if(lineAsArray[0].equals("Passive")){
-                int juniorPrice = Integer.parseInt(lineAsArray[1]);
-                return juniorPrice;
+                double passivePrice = Double.parseDouble(lineAsArray[1]);
+                return passivePrice;
             }
             break;
         }

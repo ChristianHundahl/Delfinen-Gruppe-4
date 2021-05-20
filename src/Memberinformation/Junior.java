@@ -11,12 +11,12 @@ public class Junior extends Membership{
     }
 
     @Override
-    public double readMembershipFeeFromFile() throws FileNotFoundException {
+    public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan
         while(sc.hasNextLine()){
             String currentLine = sc.nextLine();
             String[] lineAsArray = currentLine.split(";");
                 if(lineAsArray[0].equals("Junior")){
-                    int juniorPrice = Integer.parseInt(lineAsArray[1]);
+                    double juniorPrice = Double.parseDouble(lineAsArray[1]);
                     return juniorPrice;
                 }
             break;

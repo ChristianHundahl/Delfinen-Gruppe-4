@@ -10,13 +10,13 @@ public class Senior extends Membership{
         this.setActivity("Senior");
     }
     @Override
-    public double readMembershipFeeFromFile() throws FileNotFoundException {
+    public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan
         while(sc.hasNextLine()){
             String currentLine = sc.nextLine();
             String[] lineAsArray = currentLine.split(";");
             if(lineAsArray[0].equals("Senior")){
-                int juniorPrice = Integer.parseInt(lineAsArray[1]);
-                return juniorPrice;
+                double seniorPrice = Double.parseDouble(lineAsArray[1]);
+                return seniorPrice;
             }
             break;
         }
