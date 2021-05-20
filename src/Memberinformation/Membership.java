@@ -1,6 +1,8 @@
 package Memberinformation;
 //@Emilia
 
+import java.io.FileNotFoundException;
+
 public abstract class Membership {
     /*Each inherited subclass
     * - has own price
@@ -11,12 +13,21 @@ public abstract class Membership {
     * - Getter + Setter 'activity'*/
     private double price;
     private String activity;
+
     public Membership(String activity, double price){
         this.activity = activity;
         this.price = price;
     }
 
-    public abstract double readMembershipFeeFromFile();
+    //Abstract method in Membership, each subclass @Overrides
+    //FileManager
+        //Filereader : file
+        //if junior = return price
+    //FileManager.readprices
+    //FileManager find price for Junior
+    //return price;
+    public abstract double readMembershipFeeFromFile() throws FileNotFoundException;
+
 
     public void setActivity(String activity) {
         this.activity = activity;
