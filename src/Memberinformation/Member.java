@@ -9,12 +9,14 @@ public class Member{
     private boolean isInArrears;
     private Membership activity;
 
-    public void member(String name, int age, Membership activity){
+    public Member(String name, int age, Membership activity){
         this.name = name;
         this.age = age;
         this.activity = activity;
         setOver60();
     }
+
+    public Member (){}
 
     public void setName(String name) {
         this.name = name;
@@ -41,5 +43,4 @@ public class Member{
     public void setInArrears(boolean inArrears) {
         isInArrears = inArrears;
     }
-
 }

@@ -2,7 +2,6 @@ package Memberinformation;
 //@Emilia
 
 import FileHandler.FileManager;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
