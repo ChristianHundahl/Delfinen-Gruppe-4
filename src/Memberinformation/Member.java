@@ -43,4 +43,11 @@ public class Member{
     public void setInArrears(boolean inArrears) {
         isInArrears = inArrears;
     }
+
+    public void setActivity(Membership activity) {
+        this.activity = activity;
+    }
+    public Membership getActivity() {
+        return activity;
+    }
 }
