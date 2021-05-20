@@ -15,6 +15,7 @@ public class FileManager {
     public FileManager() throws FileNotFoundException {}
     //Methods
     //readFile
+    public Scanner getPriceSc() { return priceSc;}
 
 
     public int findJunior() throws FileNotFoundException {
