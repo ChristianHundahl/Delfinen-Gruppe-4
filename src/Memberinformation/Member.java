@@ -13,6 +13,7 @@ public class Member{
         this.name = name;
         this.age = age;
         this.activity = activity;
+        setOver60();
     }
 
     public void setName(String name) {
