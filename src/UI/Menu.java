@@ -21,13 +21,14 @@ public class Menu {
     public void registerNewMemberMenu(){
         System.out.println("Enter full name: ");
         String tempName = in.nextLine();
+        in.nextLine();
         System.out.println("Enter age: ");
         int tempAge = Integer.parseInt(in.nextLine());
 
         Member newMember = new Member(tempName, tempAge);
         System.out.println("New member registered");
 
-        System.out.println("Choose membership:");
+        System.out.println("Choose membership:"); //TODO Crashes the program!!!
         System.out.println("Press 1 for Junior membership");
         System.out.println("Press 2 for Senior membership");
         System.out.println("Press 3 for Passive membership");
