@@ -7,14 +7,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class MemberFileManager {
-    private static File memberInfo = new File("memberFile");
+public class FileManager {
+    private static File memberInfo = new File("");
+    private static File membershipprices = new File("");
 
     //Methods
     //readFile
-    public void fileReader() throws FileNotFoundException {
+    public void readMemberInfo() throws FileNotFoundException {
         Scanner input = new Scanner(memberInfo);
-    } // maybe not needed
+    }
+
+    public void readMembershipPrices() throws FileNotFoundException{
+        Scanner input = new Scanner(membershipprices);
+    }
+
 
     //Maybe needs to take a member in as parameter?
     public boolean isUserAlreadyInFile()throws FileNotFoundException{
