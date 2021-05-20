@@ -18,10 +18,9 @@ public abstract class Membership {
     private FileManager fm;
     Scanner sc = fm.getPriceSc();
 
-    public Membership(String activity, double price, FileManager fm){
+    public Membership(String activity, double price){
         this.activity = activity;
         this.price = price;
-        this.fm = fm;
     }
 
     public Membership(){}

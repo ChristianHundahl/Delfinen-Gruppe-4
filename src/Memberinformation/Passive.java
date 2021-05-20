@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 
 public class Passive extends Membership{
 //@Christian
-    public Passive(String activity, double price, FileManager fm) throws FileNotFoundException {
-        super(activity, price, fm);
+    public Passive(String activity, double price) throws FileNotFoundException {
+        super(activity, price);
         this.setActivity("Passive");
     }
 

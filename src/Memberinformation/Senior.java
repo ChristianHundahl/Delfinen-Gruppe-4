@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 
 public class Senior extends Membership{
 //@Christian
-    public Senior(String activity, double price, FileManager fm) throws FileNotFoundException {
-        super(activity, price, fm);
+    public Senior(String activity, double price) throws FileNotFoundException {
+        super(activity, price);
         this.setActivity("Senior");
     }
 
