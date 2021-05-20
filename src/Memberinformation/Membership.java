@@ -16,7 +16,11 @@ public abstract class Membership {
     private double price;
     private String activity;
     private FileManager fm;
-    Scanner sc = fm.getPriceSc();
+    Scanner sc;
+    {
+        assert fm != null;
+        sc = fm.getPriceSc();
+    }
 
     public Membership(String activity, double price){
         this.activity = activity;
