@@ -11,6 +11,7 @@ public class Controller {
         boolean exit = false;
 
         while(!exit){
+            System.out.println();
             menu.showMainMenu();
             int userInput = menu.fetchUserInput();
             switch(userInput){
@@ -27,7 +28,23 @@ public class Controller {
                     }
                     break;
                 case 4:
-                    menu.showManageEconomicsMenu();
+                    boolean goBack = false;
+                    while(!goBack) {
+                        menu.showManageEconomicsMenu();
+                        userInput = menu.fetchUserInput();
+                        switch (userInput) {
+                            case 1:
+                                //Show projected income
+                            case 2:
+                                //Show members in arrears
+                            case 3:
+                                //Change prices
+                            case 4:
+                                goBack = true;
+                                break;
+                        }
+                    }
+
                     break;
                 case 5:
                     System.out.println("Exiting program...");
