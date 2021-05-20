@@ -9,6 +9,9 @@ public class Senior extends Membership{
         super(activity, price, fm);
         this.setActivity("Senior");
     }
+
+    public Senior(){}
+
     @Override
     public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan
         while(sc.hasNextLine()){

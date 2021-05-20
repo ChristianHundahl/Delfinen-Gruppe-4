@@ -25,6 +25,8 @@ public abstract class Membership {
         this.fm = fm;
     }
 
+    public Membership(){}
+
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
     //FileManager
     //Filereader : file

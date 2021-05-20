@@ -7,9 +7,13 @@ public class Member{
     private int age;
     private boolean isOver60;
     private boolean isInArrears;
-    private String activity;
+    private Membership activity;
 
-    public static void member(){}
+    public void member(String name, int age, Membership activity){
+        this.name = name;
+        this.age = age;
+        this.activity = activity;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -37,10 +41,4 @@ public class Member{
         isInArrears = inArrears;
     }
 
-    public void setActivity(String activity) {
-        this.activity = activity;
-    }
-    public String getActivity() {
-        return activity;
-    }
 }

@@ -10,6 +10,8 @@ public class Junior extends Membership{
         this.setActivity("Junior");
     }
 
+    public Junior(){}
+
     @Override
     public double readMembershipFeeFromFile() throws FileNotFoundException { //@Jonatan
         while(sc.hasNextLine()){
