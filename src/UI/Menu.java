@@ -19,6 +19,7 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
+    //ToDo
     public void registerNewMemberMenu(){
         System.out.println("Enter full name: ");
         String tempName = in.nextLine();
@@ -38,7 +39,12 @@ public class Menu {
         if (tempAnswer == 3){
             //Membership tempActivity = new Passive();
         }
-        Member newMember = new Member();
+        //Member newMember = new Member();
+        System.out.println("New member registered");
+    }
+    //ToDo
+    public void manageExistingMemberMenu(){
+        System.out.println("Manage members");
     }
 
     public void showManageSwimTimesMenu(){
