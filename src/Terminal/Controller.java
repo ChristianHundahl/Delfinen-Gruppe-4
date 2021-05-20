@@ -15,10 +15,10 @@ public class Controller {
             int userInput = menu.fetchUserInput();
             switch(userInput){
                 case 1:
-                    System.out.println("1");
+                    menu.registerNewMemberMenu();
                     break;
                 case 2:
-                    System.out.println("2");
+                    menu.manageExistingMemberMenu();
                     break;
                 case 3:
                     menu.showManageSwimTimesMenu();
