@@ -9,19 +9,38 @@ import java.util.Scanner;
 
 public class FileManager {
     private static File memberInfo = new File("");
-    private static File membershipprices = new File("");
+    private static File membershipPrices = new File("resources/MembershipFeePrices");
+    private Scanner priceSc = new Scanner(membershipPrices);
 
+    public FileManager() throws FileNotFoundException {}
     //Methods
     //readFile
-    public void readMemberInfo() throws FileNotFoundException {
-        Scanner input = new Scanner(memberInfo);
+
+
+    public int findJunior() throws FileNotFoundException {
+        while(priceSc.hasNextLine()){
+            String currentLine = priceSc.nextLine();
+            String[] lineAsArray = currentLine.split(";");
+            if(lineAsArray[0].equals("Junior")){
+                int juniorPrice = Integer.parseInt(lineAsArray[1]);
+                return juniorPrice;
+            }
+        }
+        return 0;
     }
 
-    public void readMembershipPrices() throws FileNotFoundException{
-        Scanner input = new Scanner(membershipprices);
-    }
 
 
+
+
+
+
+
+
+
+
+
+    /*
     //Maybe needs to take a member in as parameter?
     public boolean isUserAlreadyInFile()throws FileNotFoundException{
         Scanner fileSc = new Scanner(memberInfo);
@@ -34,6 +53,8 @@ public class FileManager {
             //Creat an exception for if the user is already in the system
         }
     }
+
+     */
 
     //addToMemberFile
     //Maybe needs to take a member in as parameter?
