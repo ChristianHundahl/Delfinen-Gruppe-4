@@ -18,6 +18,7 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
+    //ToDO Should it return member instead?? Then controller adds member to file
     public void registerNewMemberMenu() throws FileNotFoundException{
         //System.out.println("Enter full name: ");
         //String tempName = in.nextLine();
