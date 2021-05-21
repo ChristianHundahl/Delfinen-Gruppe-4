@@ -38,8 +38,15 @@ public abstract class Membership {
     public void setActivity(String activity) {
         this.activity = activity;
     }
-
     public String getActivity() {
         return activity;
+    }
+
+    public double setPrice(double price) {
+        this.price = price;
+        return price;
+    }
+    public double getPrice() {
+        return price;
     }
 }
