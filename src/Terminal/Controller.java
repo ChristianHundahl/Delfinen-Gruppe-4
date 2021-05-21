@@ -2,10 +2,12 @@ package Terminal;
 
 import UI.Menu;
 
+import java.io.FileNotFoundException;
+
 //@Emilia
 
 public class Controller {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Menu menu = new Menu();
 
         boolean exit = false;
