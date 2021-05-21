@@ -71,7 +71,8 @@ public class Menu {
             int tempAnswer2 = in.nextInt();
 
             if (tempAnswer2 == 1){
-                Member newMember = new Member(tempName, tempAge); //TODO Add membership???
+                Member newMember = new Member(tempName, tempAge);
+                newMember.setActivity(newMembership);
                 isConfirmed = true;
             }
             if (tempAnswer2 == 2){
