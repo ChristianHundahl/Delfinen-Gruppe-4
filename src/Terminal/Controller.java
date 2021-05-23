@@ -1,5 +1,6 @@
 package Terminal;
 
+import Memberinformation.Member;
 import UI.Menu;
 
 import java.io.FileNotFoundException;
@@ -18,7 +19,7 @@ public class Controller {
             int userInput = menu.fetchUserInput();
             switch(userInput){
                 case 1:
-                    menu.registerNewMemberMenu();
+                    Member member = menu.registerNewMemberMenu();
                     break;
                 case 2:
                     menu.manageExistingMemberMenu();
@@ -55,5 +56,4 @@ public class Controller {
             }
         }
     }
-
 }

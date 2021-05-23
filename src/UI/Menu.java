@@ -19,31 +19,34 @@ public class Menu {
     }
 
     //ToDO Should it return member instead?? Then controller adds member to file
-    public void registerNewMemberMenu() throws FileNotFoundException{
+    public Member registerNewMemberMenu() throws FileNotFoundException{
         //System.out.println("Enter full name: ");
         //String tempName = in.nextLine();
         //in.nextLine();
         //System.out.println("Enter age: ");
         //int tempAge = Integer.parseInt(in.nextLine());
 
+        String tempName = "";
+        int tempAge = 0;
+        Membership newMembership = null;
+
         boolean isConfirmed = false;
         while(!isConfirmed){
             System.out.println("Enter full name: ");
-            in.nextLine();
-            String tempName = in.nextLine();
+            //in.nextLine();
+            tempName = in.nextLine(); //ToDO exceptions? no empty strings
 
 
             System.out.println("Enter age: ");
-            int tempAge = in.nextInt();
+            tempAge = fetchUserInput();
 
-            System.out.println("Choose membership:");
+            System.out.println("Choose membership:"); //Automate senior/junior???
             System.out.println("Press 1 for Junior membership");
             System.out.println("Press 2 for Senior membership");
             System.out.println("Press 3 for Passive membership");
-            in.nextLine();
-            int tempAnswer = Integer.parseInt(in.nextLine());
+            //in.nextLine();
+            int tempAnswer = fetchUserInput();
 
-            Membership newMembership = null;
             String activity = "";
 
             switch(tempAnswer){
@@ -69,8 +72,19 @@ public class Menu {
             System.out.println("Press 1 to confirm");
             System.out.println("Press 2 to reenter information");
 
-            int tempAnswer2 = in.nextInt();
+            int tempAnswer2 = fetchUserInput();
 
+            switch (tempAnswer2){
+                case 1:
+                    //Member newMember = new Member(tempName, tempAge);
+                    //newMember.setActivity(newMembership);
+                    isConfirmed = true;
+                    break;
+                case 2:
+                    continue;
+            }
+
+            /*
             if (tempAnswer2 == 1){
                 Member newMember = new Member(tempName, tempAge);
                 newMember.setActivity(newMembership);
@@ -79,9 +93,12 @@ public class Menu {
             if (tempAnswer2 == 2){
                 continue;
             }
-        }
-        System.out.println("Registration complete.");
 
+             */
+        }
+        Member newMember = new Member(tempName, tempAge);
+        newMember.setActivity(newMembership);
+        System.out.println("Registration complete.");
 
         /*System.out.println("Choose membership:");
         System.out.println("Press 1 for Junior membership");
@@ -104,7 +121,7 @@ public class Menu {
         boolean goBack = false;
         System.out.println("Press 1 to return to main menu");
         while (!goBack){
-            int answer = in.nextInt(); //ToDo fix exception in case of non-int
+            int answer = fetchUserInput();
             if (answer == 1){
                 goBack = true;
             }
@@ -148,7 +165,7 @@ public class Menu {
         System.out.println("Registration complete.");*
 
         */
-
+        return newMember;
     }
     //ToDo
     public void manageExistingMemberMenu(){
@@ -169,8 +186,20 @@ public class Menu {
     }
 
     public int fetchUserInput (){
-        int userInput = in.nextInt();
-        return userInput;
+        //TODO Make exception for non-ints, mismatchexception
+        int userInput;
+
+        while (true){
+            String input = in.nextLine();
+            try{
+                userInput = Integer.parseInt(input);
+                return userInput;
+            }
+            catch (Exception e){
+                System.out.println("Invalid Input. Try again: "); //TOdo CHange this!!
+                continue;
+            }
+        }
     }
 
     //@Daniell
