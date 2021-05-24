@@ -40,7 +40,7 @@ public class FileManager {
         FileWriter writer = new FileWriter(memberInfo);
 
     }
-    public void updateFile(Member member){
+    public void removeMemberFromFile(Member member){
         try {
             File inFile = new File(String.valueOf(memberInfo));
             File tempFile = new File(inFile.getPath() + ".tmp");
