@@ -42,11 +42,13 @@ public abstract class Membership {
         return activity;
     }
 
-    public double setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
-        return price;
     }
     public double getPrice() {
         return price;
     }
+
+    //TODO: calculate discount for members 60+
+    //TODO: Is price being returned correctly?
 }

@@ -19,10 +19,9 @@ public class Junior extends Membership{
             String[] lineAsArray = currentLine.split(";");
                 if(lineAsArray[0].equals("Junior")){
                     double juniorPrice = Double.parseDouble(lineAsArray[1]);
-                    return setPrice(juniorPrice);
+                    setPrice(juniorPrice);
                 }
-            break;
             }
-        return 0;
+        return this.getPrice();
     }
 }

@@ -13,12 +13,22 @@ public class Member{
         this.name = name;
         this.age = age;
         setOver60();
-        if (isOver60){
-
-        }
     }
 
+    //if member age 60+ && !passive
+    //price * ,75
     public Member (){}
+
+    public double getMembershipFee(){
+        //this.age
+        //this.activity
+        if (this.age >= 60 && !this.activity.getActivity().equalsIgnoreCase("passive")){//Read up on
+            return this.activity.getPrice() * 0.75;
+        }
+        else{
+            return this.activity.getPrice();
+        }
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -35,11 +45,10 @@ public class Member{
     }
 
     public void setOver60() {
-        if (age >= 60){
-            isOver60 = true;
-        }
-        else {
-            isOver60 = false;}
+
+    }
+    public boolean getOver60(){
+        return isOver60;
     }
 
     public void setInArrears(boolean inArrears) {
@@ -52,4 +61,5 @@ public class Member{
     public Membership getActivity() {
         return activity;
     }
+
 }

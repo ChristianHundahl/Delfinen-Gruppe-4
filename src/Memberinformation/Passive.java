@@ -19,10 +19,9 @@ public class Passive extends Membership{
             String[] lineAsArray = currentLine.split(";");
             if(lineAsArray[0].equals("Passive")){
                 double passivePrice = Double.parseDouble(lineAsArray[1]);
-                return setPrice(passivePrice);
+                setPrice(passivePrice);
             }
-            break;
         }
-        return 0;
+        return this.getPrice();
     }
 }
