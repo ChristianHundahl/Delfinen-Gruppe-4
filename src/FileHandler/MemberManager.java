@@ -20,10 +20,10 @@ public class MemberManager {
     public void addToMemberList(Member m){
         try {
             fileManager.isUserAlreadyInFile(m);
+            memberlist.add(m);
         } catch (FileNotFoundException | InputMismatchException e) {
             System.out.println(e.getMessage());
         }
-        memberlist.add(m);
     }
     //updateMemberFile
     public void updateMemberFile(){

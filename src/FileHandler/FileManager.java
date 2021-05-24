@@ -3,10 +3,7 @@ package FileHandler;
 
 import Memberinformation.Member;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -42,6 +39,40 @@ public class FileManager {
     public void addToFile(ArrayList list) throws IOException {
         FileWriter writer = new FileWriter(memberInfo);
 
+    }
+    public void updateFile(Member member){
+        try {
+            File inFile = new File(String.valueOf(memberInfo));
+            File tempFile = new File(inFile.getPath() + ".tmp");
+
+            FileWriter fw = new FileWriter("resources/TempMembers");
+
+            BufferedReader br = new BufferedReader(new FileReader(memberInfo));
+            BufferedWriter bwriter = new BufferedWriter(fw);
+
+            String lineToRemove = member.toString();
+            String currentLine;
+
+            while ((currentLine = br.readLine()) != null) {
+                if (currentLine.equals(lineToRemove)) {
+                    bwriter.write(currentLine);
+                    bwriter.flush();
+                }
+
+            }
+            br.close();
+            bwriter.close();
+            if (!inFile.delete()) {
+                System.out.println("File could not be deleted");
+                return;
+            }
+            if (!tempFile.renameTo(inFile)) {
+                System.out.println("File could not be renamed");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     //addToMemberlistFromArraylist
     //createListOfMembersInArrears
