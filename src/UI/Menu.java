@@ -18,14 +18,7 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
-    //ToDO Should it return member instead?? Then controller adds member to file
     public Member registerNewMemberMenu() throws FileNotFoundException{
-        //System.out.println("Enter full name: ");
-        //String tempName = in.nextLine();
-        //in.nextLine();
-        //System.out.println("Enter age: ");
-        //int tempAge = Integer.parseInt(in.nextLine());
-
         String tempName = "";
         int tempAge = 0;
         Membership newMembership = null;
@@ -33,7 +26,6 @@ public class Menu {
         boolean isConfirmed = false;
         while(!isConfirmed){
             System.out.println("Enter full name: ");
-            //in.nextLine();
             tempName = in.nextLine(); //ToDO exceptions? no empty strings
 
 
@@ -44,7 +36,7 @@ public class Menu {
             System.out.println("Press 1 for Junior membership");
             System.out.println("Press 2 for Senior membership");
             System.out.println("Press 3 for Passive membership");
-            //in.nextLine();
+
             int tempAnswer = fetchUserInput();
 
             String activity = "";
@@ -76,47 +68,16 @@ public class Menu {
 
             switch (tempAnswer2){
                 case 1:
-                    //Member newMember = new Member(tempName, tempAge);
-                    //newMember.setActivity(newMembership);
                     isConfirmed = true;
                     break;
                 case 2:
                     continue;
             }
 
-            /*
-            if (tempAnswer2 == 1){
-                Member newMember = new Member(tempName, tempAge);
-                newMember.setActivity(newMembership);
-                isConfirmed = true;
-            }
-            if (tempAnswer2 == 2){
-                continue;
-            }
-
-             */
         }
         Member newMember = new Member(tempName, tempAge);
         newMember.setActivity(newMembership);
         System.out.println("Registration complete.");
-
-        /*System.out.println("Choose membership:");
-        System.out.println("Press 1 for Junior membership");
-        System.out.println("Press 2 for Senior membership");
-        System.out.println("Press 3 for Passive membership");
-        in.nextLine();
-        int tempAnswer = Integer.parseInt(in.nextLine());
-
-        Membership newMembership = null;
-
-        switch(tempAnswer){
-            case 1 -> newMembership = new Junior();
-            case 2 -> newMembership = new Senior();
-            case 3 -> newMembership = new Passive();
-        }
-
-         */
-
 
         boolean goBack = false;
         System.out.println("Press 1 to return to main menu");
@@ -126,45 +87,6 @@ public class Menu {
                 goBack = true;
             }
         }
-
-
-        /*
-
-        try{
-            switch(tempAnswer){
-                case 1 -> newMembership = new Junior();
-                case 2 -> newMembership = new Senior();
-                case 3 -> newMembership = new Passive();
-            }
-        }
-        catch(FileNotFoundException e){
-            System.out.println("Could not find file");
-            //Hvad skal der ske
-        }
-
-        /*if (tempAnswer == 1){
-            Junior tempActivity = null;
-
-            try{
-                tempActivity = new Junior();
-            }
-            catch(FileNotFoundException e){
-                System.out.println("Cannot find file - terminating the program");
-            }
-            newMember.setActivity(tempActivity);
-
-        }
-        if (tempAnswer == 2){
-            Senior tempActivity = new Senior();
-            newMember.setActivity(tempActivity);
-        }
-        if (tempAnswer == 3){
-            Passive tempActivity = new Passive();
-            newMember.setActivity(tempActivity);
-        }
-        System.out.println("Registration complete.");*
-
-        */
         return newMember;
     }
     //ToDo
@@ -196,7 +118,7 @@ public class Menu {
                 return userInput;
             }
             catch (Exception e){
-                System.out.println("Invalid Input. Try again: "); //TOdo CHange this!!
+                System.out.println("Invalid Input. Try again: "); //TOdo CHange this??
                 continue;
             }
         }
