@@ -26,7 +26,11 @@ public class Menu {
         boolean isConfirmed = false;
         while(!isConfirmed){
             System.out.println("Enter full name: ");
-            tempName = in.nextLine(); //ToDO exceptions? no empty strings
+            tempName = in.nextLine();
+            if (tempName.equals("")){
+                System.out.println("No input. Try again.");
+                continue;
+            }
 
 
             System.out.println("Enter age: ");
@@ -108,7 +112,7 @@ public class Menu {
     }
 
     public int fetchUserInput (){
-        //TODO Make exception for non-ints, mismatchexception
+        //TODO Make exception for non-ints, mismatchexception??
         int userInput;
 
         while (true){
@@ -118,17 +122,15 @@ public class Menu {
                 return userInput;
             }
             catch (Exception e){
-                System.out.println("Invalid Input. Try again: "); //TOdo CHange this??
+                System.out.println("Invalid Input. Try again: "); //TOdo Change this??
                 continue;
             }
         }
     }
 
-    //@Daniell
+    //????
     public void showMembersInArrears(){
         System.out.println("Members in arrears: ");
     }
 }
 
-//showMembersInArrears
-//changePrice
