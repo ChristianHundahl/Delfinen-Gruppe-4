@@ -17,8 +17,8 @@ public class Member{
 
     //TODO: MemberToString
         //Return member name + age + activity
-    public void ToString() {
-
+    public String toString() {
+        return name +" "+ age +" "+ activity;
     }
 
     public Member (){}
