@@ -1,11 +1,14 @@
 package Terminal;
 
+import Memberinformation.Member;
 import UI.Menu;
+
+import java.io.FileNotFoundException;
 
 //@Emilia
 
 public class Controller {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Menu menu = new Menu();
 
         boolean exit = false;
@@ -16,7 +19,7 @@ public class Controller {
             int userInput = menu.fetchUserInput();
             switch(userInput){
                 case 1:
-                    menu.registerNewMemberMenu();
+                    Member member = menu.registerNewMemberMenu();
                     break;
                 case 2:
                     menu.manageExistingMemberMenu();
@@ -53,5 +56,4 @@ public class Controller {
             }
         }
     }
-
 }

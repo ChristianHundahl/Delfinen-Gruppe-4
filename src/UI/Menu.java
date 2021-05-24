@@ -1,5 +1,5 @@
 package UI;
-//@Daniell, @Emilia
+//@Emilia
 
 import Memberinformation.*;
 
@@ -18,23 +18,117 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
-    public void registerNewMemberMenu(){
-        System.out.println("Enter full name: ");
-        String tempName = in.nextLine();
-        in.nextLine();
-        System.out.println("Enter age: ");
-        int tempAge = Integer.parseInt(in.nextLine());
+    //ToDO Should it return member instead?? Then controller adds member to file
+    public Member registerNewMemberMenu() throws FileNotFoundException{
+        //System.out.println("Enter full name: ");
+        //String tempName = in.nextLine();
+        //in.nextLine();
+        //System.out.println("Enter age: ");
+        //int tempAge = Integer.parseInt(in.nextLine());
 
+        String tempName = "";
+        int tempAge = 0;
+        Membership newMembership = null;
+
+        boolean isConfirmed = false;
+        while(!isConfirmed){
+            System.out.println("Enter full name: ");
+            //in.nextLine();
+            tempName = in.nextLine(); //ToDO exceptions? no empty strings
+
+
+            System.out.println("Enter age: ");
+            tempAge = fetchUserInput();
+
+            System.out.println("Choose membership:"); //Automate senior/junior???
+            System.out.println("Press 1 for Junior membership");
+            System.out.println("Press 2 for Senior membership");
+            System.out.println("Press 3 for Passive membership");
+            //in.nextLine();
+            int tempAnswer = fetchUserInput();
+
+            String activity = "";
+
+            switch(tempAnswer){
+                case 1 -> {
+                    newMembership = new Junior();
+                    activity = "Junior Membership";
+                }
+                case 2 -> {
+                    newMembership = new Senior();
+                    activity = "Senior Membership";
+                }
+                case 3 -> {
+                    newMembership = new Passive();
+                    activity = "Passive membership";
+                }
+            }
+
+            System.out.println("New member:");
+            System.out.println("Name: " + tempName);
+            System.out.println("Age: " + tempAge);
+            System.out.println(activity);
+
+            System.out.println("Press 1 to confirm");
+            System.out.println("Press 2 to reenter information");
+
+            int tempAnswer2 = fetchUserInput();
+
+            switch (tempAnswer2){
+                case 1:
+                    //Member newMember = new Member(tempName, tempAge);
+                    //newMember.setActivity(newMembership);
+                    isConfirmed = true;
+                    break;
+                case 2:
+                    continue;
+            }
+
+            /*
+            if (tempAnswer2 == 1){
+                Member newMember = new Member(tempName, tempAge);
+                newMember.setActivity(newMembership);
+                isConfirmed = true;
+            }
+            if (tempAnswer2 == 2){
+                continue;
+            }
+
+             */
+        }
         Member newMember = new Member(tempName, tempAge);
-        System.out.println("New member registered");
+        newMember.setActivity(newMembership);
+        System.out.println("Registration complete.");
 
-        System.out.println("Choose membership:"); //TODO Crashes the program!!!
+        /*System.out.println("Choose membership:");
         System.out.println("Press 1 for Junior membership");
         System.out.println("Press 2 for Senior membership");
         System.out.println("Press 3 for Passive membership");
+        in.nextLine();
         int tempAnswer = Integer.parseInt(in.nextLine());
 
         Membership newMembership = null;
+
+        switch(tempAnswer){
+            case 1 -> newMembership = new Junior();
+            case 2 -> newMembership = new Senior();
+            case 3 -> newMembership = new Passive();
+        }
+
+         */
+
+
+        boolean goBack = false;
+        System.out.println("Press 1 to return to main menu");
+        while (!goBack){
+            int answer = fetchUserInput();
+            if (answer == 1){
+                goBack = true;
+            }
+        }
+
+
+        /*
 
         try{
             switch(tempAnswer){
@@ -71,7 +165,7 @@ public class Menu {
         System.out.println("Registration complete.");*
 
         */
-
+        return newMember;
     }
     //ToDo
     public void manageExistingMemberMenu(){
@@ -92,17 +186,27 @@ public class Menu {
     }
 
     public int fetchUserInput (){
-        int userInput = in.nextInt();
-        return userInput;
+        //TODO Make exception for non-ints, mismatchexception
+        int userInput;
+
+        while (true){
+            String input = in.nextLine();
+            try{
+                userInput = Integer.parseInt(input);
+                return userInput;
+            }
+            catch (Exception e){
+                System.out.println("Invalid Input. Try again: "); //TOdo CHange this!!
+                continue;
+            }
+        }
     }
 
+    //@Daniell
     public void showMembersInArrears(){
         System.out.println("Members in arrears: ");
     }
 }
 
-//Userinput
-//mainMenu
-//manageMembers
 //showMembersInArrears
 //changePrice
