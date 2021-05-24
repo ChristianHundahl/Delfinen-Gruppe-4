@@ -15,11 +15,15 @@ public class Member{
         setOver60();
     }
 
-    //if member age 60+ && !passive
-    //price * ,75
+    //TODO: MemberToString
+        //Return member name + age + activity
+    public void ToString() {
+
+    }
+
     public Member (){}
 
-    public double getMembershipFee(){
+    public double getMembershipFee(){//if member age 60+ && !passive = price * 0,75
         //this.age
         //this.activity
         if (this.age >= 60 && !this.activity.getActivity().equalsIgnoreCase("passive")){//Read up on
@@ -61,5 +65,4 @@ public class Member{
     public Membership getActivity() {
         return activity;
     }
-
 }
