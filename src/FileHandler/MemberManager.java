@@ -3,6 +3,7 @@ package FileHandler;
 import Memberinformation.Member;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
@@ -16,16 +17,25 @@ public class MemberManager {
     //addToMemberList
     public void addToMemberList(Member m){
         try {
-            fileManager.isUserAlreadyInFile(m);
-            memberlist.add(m);
-        } catch (FileNotFoundException | InputMismatchException e) {
-            System.out.println(e.getMessage());
+            if(fileManager.isUserAlreadyInFile(m)) {
+                memberlist.add(m);
+                fileManager.addToFile(memberlist);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     //updateMemberFile
     public void updateMemberFile(){
 
     }
+
+    public void printList(){
+        System.out.println(memberlist);
+    }
+
 
     public void removeMember(int x ,Member memberToRemove){
         memberlist.remove(x);
