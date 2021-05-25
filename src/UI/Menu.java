@@ -56,6 +56,7 @@ public class Menu {
                     case 2 -> {
                         newMembership = new Senior();
                         activity = "Senior Membership";
+                        newMembership.readMembershipFeeFromFile(); // Erik har tilføjet dette i CodeLab
                         membershipChosen = true;
                     }
                     case 3 -> {
