@@ -21,10 +21,6 @@ public abstract class Membership {
         this.sc = fm.getPriceSc();
     }
 
-    public String toString(){ //
-        return this.price + " " + this.activity;
-    }
-
     public Membership(){}
 
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
@@ -52,7 +48,7 @@ public abstract class Membership {
     Multiply each category no. of members w/ category price
     System.out.println(Result)*/
     public void showProjectedIncome() throws FileNotFoundException{
-        while(memberlist members : memberlist){
+        while(){
 
             double projectedIncomeFromJuniors = 0;
             double projectedIncomeFromSeniors = 0;
