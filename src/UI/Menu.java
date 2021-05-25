@@ -75,7 +75,7 @@ public class Menu {
             System.out.println("Press 2 to reenter information");
 
 
-            //ToDo What does the default do?
+            //ToDo Default works like case 2, is that cool?
             int tempAnswer2 = fetchUserInput();
             switch (tempAnswer2){
                 case 1:
