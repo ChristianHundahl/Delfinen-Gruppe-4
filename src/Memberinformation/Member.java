@@ -18,7 +18,7 @@ public class Member{
     //TODO: MemberToString
         //Return member name + age + activity
     public String toString() {
-        return name +" "+ age +" "+ activity +" "+ activity.getPrice();
+        return name +" "+ age +" "+ activity +" "+ getMembershipFee();
     }
 
     public Member (){}
