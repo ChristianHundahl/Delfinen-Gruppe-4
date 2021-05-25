@@ -10,6 +10,16 @@ import java.util.Scanner;
 public class FileManager {
     private static File memberInfo = new File("resources/Members.csv");
     private static File membershipPrices = new File("resources/MembershipFeePrices");
+    private static FileWriter writer;
+
+    static {
+        try {
+            writer = new FileWriter("resources/Members.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     //readFile
     private Scanner memberSc = new Scanner(memberInfo);
@@ -26,8 +36,8 @@ public class FileManager {
        if(memberSc.hasNextLine()) {
            while (memberSc.hasNextLine()) {
                String currentLine = memberSc.nextLine();
-               String[] clAsArray = currentLine.split(";");
-               if (clAsArray[0].equals(member.getName())) {
+               String[] clAsArray = currentLine.split(" ");
+               if (!clAsArray[0].equals(member.getName())) {
                    return true;
                }
            }
@@ -39,16 +49,14 @@ public class FileManager {
 
     //addToMemberFile
     //Maybe needs to take a member in as parameter?
-    public void addToFile(ArrayList<Member> list) throws IOException {
-        FileWriter writer = new FileWriter(memberInfo);
-        for(Member member : list){
+    public void addToFile(Member member) throws IOException {
         isUserAlreadyInFile(member);
         if(isUserAlreadyInFile(member)){
             writer.write(member.toString()+System.lineSeparator());
+            writer.flush();
         }
-        }
-        writer.close();
     }
+
     public void removeMemberFromFile(Member member){
         try {
             File inFile = new File(String.valueOf(memberInfo));

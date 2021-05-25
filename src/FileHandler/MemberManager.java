@@ -19,7 +19,7 @@ public class MemberManager {
         try {
             if(fileManager.isUserAlreadyInFile(m)) {
                 memberlist.add(m);
-                fileManager.addToFile(memberlist);
+                fileManager.addToFile(m);
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
@@ -31,7 +31,6 @@ public class MemberManager {
     public void updateMemberFile(){
 
     }
-
     public void printList(){
         System.out.println(memberlist);
     }
