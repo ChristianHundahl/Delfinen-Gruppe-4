@@ -26,7 +26,7 @@ public class FileManager {
         while(memberSc.hasNextLine()){
             String currentLine = memberSc.nextLine();
             String[] clAsArray= currentLine.split(";");
-            if(clAsArray[0].equals(member.getName())){
+            if(!clAsArray[0].equals(member.getName())){
                 return true;
             }
         }
@@ -36,14 +36,20 @@ public class FileManager {
 
     //addToMemberFile
     //Maybe needs to take a member in as parameter?
-    public void addToFile(ArrayList list) throws IOException {
+    public void addToFile(ArrayList<Member> list) throws IOException {
         FileWriter writer = new FileWriter(memberInfo);
-
+        for(Member member : list){
+        isUserAlreadyInFile(member);
+        if(isUserAlreadyInFile(member)){
+            writer.write(member.toString()+System.lineSeparator());
+        }
+        }
+        writer.close();
     }
     public void removeMemberFromFile(Member member){
         try {
             File inFile = new File(String.valueOf(memberInfo));
-            File tempFile = new File(inFile.getPath() + ".tmp");
+            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
 
             FileWriter fw = new FileWriter("resources/TempMembers");
 
@@ -58,7 +64,6 @@ public class FileManager {
                     bwriter.write(currentLine);
                     bwriter.flush();
                 }
-
             }
             br.close();
             bwriter.close();
@@ -75,5 +80,4 @@ public class FileManager {
         }
     }
     //addToMemberlistFromArraylist
-    //createListOfMembersInArrears
 }
