@@ -29,8 +29,7 @@ public class FileManager {
     public FileManager() throws FileNotFoundException {}
     //Getter
     public Scanner getPriceSc(){
-        return priceSc;
-    }
+        return priceSc; }
 
     //Methods
     //Maybe needs to take a member in as parameter?
