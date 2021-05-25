@@ -23,12 +23,6 @@ public abstract class Membership {
     public Membership(){}
 
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
-    //FileManager
-    //Filereader : file
-    //if junior = return price
-    //FileManager.readprices
-    //FileManager find price for Junior
-    //return price;
 
     public void setActivity(String activity) {
         this.activity = activity;
