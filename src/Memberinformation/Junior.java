@@ -24,4 +24,5 @@ public class Junior extends Membership{
             }
         return this.getPrice();
     }
+
 }

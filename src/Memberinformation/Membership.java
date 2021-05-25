@@ -23,6 +23,7 @@ public abstract class Membership {
 
     public Membership(){}
 
+
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
 
     public void setActivity(String activity) {
@@ -47,7 +48,7 @@ public abstract class Membership {
         Passive
     Multiply each category no. of members w/ category price
     System.out.println(Result)*/
-    public void showProjectedIncome() throws FileNotFoundException{
+    /*public void showProjectedIncome() throws FileNotFoundException{
         while(){
 
             double projectedIncomeFromJuniors = 0;
