@@ -1,6 +1,6 @@
 package Memberinformation;
 //@Emilia
-import FileHandler.FileManager;
+
 import java.io.FileNotFoundException;
 
 public class Senior extends Membership{

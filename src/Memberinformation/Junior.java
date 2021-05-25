@@ -1,10 +1,10 @@
 package Memberinformation;
 //@Emilia
-import FileHandler.FileManager;
+
 import java.io.FileNotFoundException;
 
 public class Junior extends Membership{
-
+//@Christian
     public Junior(String activity, double price) throws FileNotFoundException {
         super(activity, price);
         this.setActivity("Junior");
