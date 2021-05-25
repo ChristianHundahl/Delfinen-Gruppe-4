@@ -18,7 +18,7 @@ public class Member{
     //TODO: MemberToString
         //Return member name + age + activity
     public String toString() {
-        return name +";"+ age +";"+ activity +";"+ activity.getPrice();
+        return name +";"+ age +";"+ activity +";"+ getMembershipFee() + activity.getPrice();
     }
 
     public Member (){}
@@ -26,6 +26,7 @@ public class Member{
     public double getMembershipFee(){//if member age 60+ && !passive = price * 0,75
         //this.age
         //this.activity
+        System.out.println(activity.getPrice());
         if (this.age >= 60 && !this.activity.getActivity().equalsIgnoreCase("passive")){//Read up on
             return this.activity.getPrice() * 0.75;
         }
