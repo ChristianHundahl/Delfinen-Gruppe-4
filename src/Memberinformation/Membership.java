@@ -21,7 +21,7 @@ public abstract class Membership {
         this.sc = fm.getPriceSc();
     }
 
-    public String toString(){
+    public String toString(){ //
         return price + " " + activity;
     }
 
