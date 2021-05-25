@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class FileManager {
     private static File memberInfo = new File("resources/Members.csv");
-    private static File membershipPrices = new File("resources/MembershipFeePrices");
+    private static File membershipPrices = new File("resources/MembershipFeePrices.csv");
     private static FileWriter writer;
 
     static {
@@ -28,7 +28,9 @@ public class FileManager {
     //Empty constructor
     public FileManager() throws FileNotFoundException {}
     //Getter
-    public Scanner getPriceSc() { return priceSc;}
+    public Scanner getPriceSc(){
+        return priceSc;
+    }
 
     //Methods
     //Maybe needs to take a member in as parameter?
@@ -36,7 +38,7 @@ public class FileManager {
        if(memberSc.hasNextLine()) {
            while (memberSc.hasNextLine()) {
                String currentLine = memberSc.nextLine();
-               String[] clAsArray = currentLine.split(" ");
+               String[] clAsArray = currentLine.split(";");
                if (!clAsArray[0].equals(member.getName())) {
                    return true;
                }
