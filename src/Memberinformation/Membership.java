@@ -7,11 +7,6 @@ import java.util.Scanner;
 
 public abstract class Membership {
 //@Christian
-    //How to change price of all objects without changing code?
-    //To change membership price: Make file rep. database
-    //Each line junior, senior, passive = has price, gets from file
-    //over60 = calc by class?
-    //User --> can write to file for change price
 
     private double price;
     private String activity;
@@ -49,6 +44,4 @@ public abstract class Membership {
         return price;
     }
 
-    //TODO: calculate discount for members 60+
-    //TODO: Is price being returned correctly?
 }
