@@ -136,15 +136,16 @@ public class Menu {
     public void manageSwimTimesMenu(){
         System.out.println("Coming spring 2022!");
         System.out.println("Press 1 to go back to main menu");
-        int userInput = fetchUserInput();
-        while (userInput != 1){
-            userInput = fetchUserInput();
-        }
+        press1();
     }
 
     public void comingSpring2022Menu(){
         System.out.println("Coming spring 2022!");
         System.out.println("Press 1 to go back");
+        press1();
+    }
+
+    public void press1(){
         int userInput = fetchUserInput();
         while (userInput != 1){
             userInput = fetchUserInput();
@@ -181,6 +182,10 @@ public class Menu {
     //????
     public void showMembersInArrears(){
         System.out.println("Members in arrears: ");
+        System.out.println("And this is where I'd run my showMembersInArrears method...");
+        System.out.println("If I had any!!!              ...Dinklebeeeeeerg..!");
+        System.out.println("Press 1 to go back");
+        press1();
     }
 }
 

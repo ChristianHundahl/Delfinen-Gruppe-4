@@ -31,9 +31,6 @@ public class Controller {
                     break;
                 case 3:
                     menu.manageSwimTimesMenu();
-                    //while (userInput != 1){
-                    //    userInput = menu.fetchUserInput();
-                    //}
                     break;
                 case 4:
                     boolean goBack = false;
@@ -45,7 +42,7 @@ public class Controller {
                                 menu.comingSpring2022Menu(); //Show projected income
                                 break;
                             case 2:
-                                menu.comingSpring2022Menu(); //Show members in arrears
+                                menu.showMembersInArrears();//Show members in arrears
                                 break;
                             case 3:
                                 menu.comingSpring2022Menu(); //Change prices
