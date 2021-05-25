@@ -45,8 +45,6 @@ public class Menu {
             while (!membershipChosen){
                 int tempAnswer = fetchUserInput();
 
-                //String activity = "";
-
                 switch(tempAnswer){
                     case 1 -> {
                         newMembership = new Junior();
@@ -67,30 +65,6 @@ public class Menu {
                     default -> defaultMessage();
                 }
             }
-            /*
-            int tempAnswer = fetchUserInput();
-
-            String activity = "";
-
-            switch(tempAnswer){
-                case 1 -> {
-                    newMembership = new Junior();
-                    activity = "Junior Membership";
-                }
-                case 2 -> {
-                    newMembership = new Senior();
-                    activity = "Senior Membership";
-                }
-                case 3 -> {
-                    newMembership = new Passive();
-                    activity = "Passive membership";
-                }
-                default -> {
-                    //ToDo
-                }
-            }
-
-             */
 
             System.out.println("New member:");
             System.out.println("Name: " + tempName);
@@ -146,7 +120,7 @@ public class Menu {
         press1();
     }
 
-    public void press1(){
+    public void press1(){ //Kinda awkward when a non-integer is entered
         int userInput = fetchUserInput();
         while (userInput != 1){
             userInput = fetchUserInput();
