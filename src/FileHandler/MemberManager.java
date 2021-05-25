@@ -13,9 +13,6 @@ public class MemberManager {
     public MemberManager()throws FileNotFoundException{}
 
     //Methods
-    //createNewMember
-    public void creatNewMember(){
-    }
     //addToMemberList
     public void addToMemberList(Member m){
         try {
