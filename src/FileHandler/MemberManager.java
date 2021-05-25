@@ -26,4 +26,9 @@ public class MemberManager {
     public void updateMemberFile(){
 
     }
+
+    public void removeMember(int x ,Member memberToRemove){
+        memberlist.remove(x);
+        fileManager.removeMemberFromFile(memberToRemove);
+    }
 }
