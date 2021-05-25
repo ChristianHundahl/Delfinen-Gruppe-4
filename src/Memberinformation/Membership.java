@@ -22,7 +22,7 @@ public abstract class Membership {
     }
 
     public String toString(){ //
-        return price + " " + activity;
+        return this.price + " " + this.activity;
     }
 
     public Membership(){}
@@ -58,17 +58,17 @@ public abstract class Membership {
             double projectedIncomeFromSeniors = 0;
             double projectedIncomeFromPassives = 0;
 
-            if(member.Activity(Junior)) {
-                double incomeFromMember = Double.parseDouble(lineAsArray[1]);
+            if(this.activity == "Junior") {
+                double incomeFromMember = getPrice();
                 projectedIncomeFromJuniors = projectedIncomeFromJuniors + incomeFromMember;
             }
 
-            if(member.Activity(Senior)) {
-                double incomeFromMember = Double.parseDouble(lineAsArray[1]);
+            if(this.activity == "Senior") {
+                double incomeFromMember = getPrice();
                 projectedIncomeFromSeniors = projectedIncomeFromSeniors + incomeFromMember;
             }
-            if(member.Activity(Passive)) {
-                double incomeFromMember = Double.parseDouble(lineAsArray[1]);
+            if(this.activity == "Passive") {
+                double incomeFromMember = getPrice();
                 projectedIncomeFromPassives = projectedIncomeFromPassives + incomeFromMember;
             }
 
