@@ -30,10 +30,10 @@ public class Controller {
                     menu.manageExistingMemberMenu();
                     break;
                 case 3:
-                    menu.showManageSwimTimesMenu();
-                    while (userInput != 1){
-                        userInput = menu.fetchUserInput();
-                    }
+                    menu.manageSwimTimesMenu();
+                    //while (userInput != 1){
+                    //    userInput = menu.fetchUserInput();
+                    //}
                     break;
                 case 4:
                     boolean goBack = false;
@@ -42,11 +42,14 @@ public class Controller {
                         userInput = menu.fetchUserInput();
                         switch (userInput) {
                             case 1:
-                                //Show projected income
+                                menu.comingSpring2022Menu(); //Show projected income
+                                break;
                             case 2:
-                                //Show members in arrears
+                                menu.comingSpring2022Menu(); //Show members in arrears
+                                break;
                             case 3:
-                                //Change prices
+                                menu.comingSpring2022Menu(); //Change prices
+                                break;
                             case 4:
                                 goBack = true;
                                 break;
