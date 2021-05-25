@@ -58,6 +58,9 @@ public class Menu {
                     newMembership = new Passive();
                     activity = "Passive membership";
                 }
+                default -> {
+                    //ToDo
+                }
             }
 
             System.out.println("New member:");
@@ -76,6 +79,8 @@ public class Menu {
                     break;
                 case 2:
                     continue;
+                default:
+                    //ToDo
             }
 
         }
@@ -126,6 +131,10 @@ public class Menu {
                 continue;
             }
         }
+    }
+
+    public void defaultMessage(){
+        System.out.println("Invalid input. Try again.");
     }
 
     //????

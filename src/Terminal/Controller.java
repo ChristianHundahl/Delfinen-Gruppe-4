@@ -1,5 +1,7 @@
 package Terminal;
 
+import FileHandler.FileManager;
+import FileHandler.MemberManager;
 import Memberinformation.Member;
 import UI.Menu;
 
@@ -10,6 +12,8 @@ import java.io.FileNotFoundException;
 public class Controller {
     public static void main(String[] args) throws FileNotFoundException {
         Menu menu = new Menu();
+        MemberManager memberManager = new MemberManager();
+        FileManager fileManager = new FileManager();
 
         boolean exit = false;
 
@@ -19,7 +23,8 @@ public class Controller {
             int userInput = menu.fetchUserInput();
             switch(userInput){
                 case 1:
-                    Member member = menu.registerNewMemberMenu();
+                    Member tempMember = menu.registerNewMemberMenu();
+                    memberManager.addToMemberList(tempMember);
                     break;
                 case 2:
                     menu.manageExistingMemberMenu();
@@ -45,6 +50,9 @@ public class Controller {
                             case 4:
                                 goBack = true;
                                 break;
+                            default:
+                                menu.defaultMessage();
+                                break;
                         }
                     }
 
@@ -52,6 +60,9 @@ public class Controller {
                 case 5:
                     System.out.println("Exiting program...");
                     exit = true;
+                    break;
+                default:
+                    menu.defaultMessage();
                     break;
             }
         }
