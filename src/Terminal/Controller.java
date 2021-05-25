@@ -50,6 +50,9 @@ public class Controller {
                             case 4:
                                 goBack = true;
                                 break;
+                            default:
+                                menu.defaultMessage();
+                                break;
                         }
                     }
 
@@ -57,6 +60,9 @@ public class Controller {
                 case 5:
                     System.out.println("Exiting program...");
                     exit = true;
+                    break;
+                default:
+                    menu.defaultMessage();
                     break;
             }
         }
