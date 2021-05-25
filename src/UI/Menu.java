@@ -22,6 +22,7 @@ public class Menu {
         String tempName = "";
         int tempAge = 0;
         Membership newMembership = null;
+        String activity = "";
 
         boolean isConfirmed = false;
         while(!isConfirmed){
@@ -32,7 +33,6 @@ public class Menu {
                 continue;
             }
 
-
             System.out.println("Enter age: ");
             tempAge = fetchUserInput();
 
@@ -41,6 +41,32 @@ public class Menu {
             System.out.println("Press 2 for Senior membership");
             System.out.println("Press 3 for Passive membership");
 
+            boolean membershipChosen = false;
+            while (!membershipChosen){
+                int tempAnswer = fetchUserInput();
+
+                //String activity = "";
+
+                switch(tempAnswer){
+                    case 1 -> {
+                        newMembership = new Junior();
+                        activity = "Junior Membership";
+                        membershipChosen = true;
+                    }
+                    case 2 -> {
+                        newMembership = new Senior();
+                        activity = "Senior Membership";
+                        membershipChosen = true;
+                    }
+                    case 3 -> {
+                        newMembership = new Passive();
+                        activity = "Passive membership";
+                        membershipChosen = true;
+                    }
+                    default -> defaultMessage();
+                }
+            }
+            /*
             int tempAnswer = fetchUserInput();
 
             String activity = "";
@@ -63,16 +89,19 @@ public class Menu {
                 }
             }
 
+             */
+
             System.out.println("New member:");
             System.out.println("Name: " + tempName);
             System.out.println("Age: " + tempAge);
             System.out.println(activity);
-
+            System.out.println();
             System.out.println("Press 1 to confirm");
             System.out.println("Press 2 to reenter information");
 
-            int tempAnswer2 = fetchUserInput();
 
+            //ToDo What does the default do?
+            int tempAnswer2 = fetchUserInput();
             switch (tempAnswer2){
                 case 1:
                     isConfirmed = true;
@@ -80,7 +109,7 @@ public class Menu {
                 case 2:
                     continue;
                 default:
-                    //ToDo
+                    defaultMessage();
             }
 
         }
@@ -117,7 +146,6 @@ public class Menu {
     }
 
     public int fetchUserInput (){
-        //TODO Make exception for non-ints, mismatchexception??
         int userInput;
 
         while (true){
@@ -127,14 +155,13 @@ public class Menu {
                 return userInput;
             }
             catch (Exception e){
-                System.out.println("Invalid Input. Try again: "); //TOdo Change this??
-                continue;
+                defaultMessage();
             }
         }
     }
 
     public void defaultMessage(){
-        System.out.println("Invalid input. Try again.");
+        System.out.println("Invalid input. Try again:");
     }
 
     //????
