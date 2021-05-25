@@ -28,6 +28,7 @@ public class Controller {
                     break;
                 case 2:
                     menu.manageExistingMemberMenu();
+                    memberManager.printList();
                     break;
                 case 3:
                     menu.manageSwimTimesMenu();

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileManager {
-    private static File memberInfo = new File("resources/Members");
+    private static File memberInfo = new File("resources/Members.csv");
     private static File membershipPrices = new File("resources/MembershipFeePrices");
 
     //readFile
@@ -23,15 +23,18 @@ public class FileManager {
     //Methods
     //Maybe needs to take a member in as parameter?
     public boolean isUserAlreadyInFile(Member member)throws FileNotFoundException{
-        while(memberSc.hasNextLine()){
-            String currentLine = memberSc.nextLine();
-            String[] clAsArray= currentLine.split(";");
-            if(!clAsArray[0].equals(member.getName())){
-                return true;
-            }
-        }
-        //Creat an exception for if the user is already in the system
-        throw new UserAlreadyExistsException();
+       if(memberSc.hasNextLine()) {
+           while (memberSc.hasNextLine()) {
+               String currentLine = memberSc.nextLine();
+               String[] clAsArray = currentLine.split(";");
+               if (clAsArray[0].equals(member.getName())) {
+                   return true;
+               }
+           }
+           //Creat an exception for if the user is already in the system
+           throw new UserAlreadyExistsException();
+       }
+       return true;
     }
 
     //addToMemberFile
