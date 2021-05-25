@@ -18,7 +18,7 @@ public class Controller {
         boolean exit = false;
 
         while(!exit){
-            System.out.println();
+            //System.out.println();
             menu.showMainMenu();
             int userInput = menu.fetchUserInput();
             switch(userInput){
