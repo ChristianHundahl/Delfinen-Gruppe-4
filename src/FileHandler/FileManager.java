@@ -14,7 +14,7 @@ public class FileManager {
 
     static {
         try {
-            writer = new FileWriter("resources/Members.csv");
+            writer = new FileWriter("resources/Members.csv",true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,65 +31,22 @@ public class FileManager {
     public Scanner getPriceSc(){
         return priceSc; }
 
-    //Methods
-    //Maybe needs to take a member in as parameter?
-    public boolean isUserAlreadyInFile(Member member)throws FileNotFoundException{
-       if(memberSc.hasNextLine()) {
-           while (memberSc.hasNextLine()) {
-               String currentLine = memberSc.nextLine();
-               String[] clAsArray = currentLine.split(";");
-               if (!clAsArray[0].equals(member.getName())) {
-                   return true;
-               }
-           }
-           //Creat an exception for if the user is already in the system
-           throw new UserAlreadyExistsException();
-       }
-       return true;
+    public File getMembersFile(){
+        return memberInfo;
     }
 
+    //Methods
     //addToMemberFile
-    //Maybe needs to take a member in as parameter?
     public void addToFile(Member member) throws IOException {
-        isUserAlreadyInFile(member);
-        if(isUserAlreadyInFile(member)){
             writer.write(member.toString()+System.lineSeparator());
+            writer.flush();
+    }
+    public void removeMemberFromFile(ArrayList<Member> members) throws IOException {
+        FileWriter writer = new FileWriter("resources/Members.csv");
+        for (Member m : members) {
+            writer.write(m.toString() + System.lineSeparator());
             writer.flush();
         }
     }
 
-    public void removeMemberFromFile(Member member){
-        try {
-            File inFile = new File(String.valueOf(memberInfo));
-            File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
-
-            FileWriter fw = new FileWriter("resources/TempMembers");
-
-            BufferedReader br = new BufferedReader(new FileReader(memberInfo));
-            BufferedWriter bwriter = new BufferedWriter(fw);
-
-            String lineToRemove = member.toString();
-            String currentLine;
-
-            while ((currentLine = br.readLine()) != null) {
-                if (currentLine.equals(lineToRemove)) {
-                    bwriter.write(currentLine);
-                    bwriter.flush();
-                }
-            }
-            br.close();
-            bwriter.close();
-            if (!inFile.delete()) {
-                System.out.println("File could not be deleted");
-                return;
-            }
-            if (!tempFile.renameTo(inFile)) {
-                System.out.println("File could not be renamed");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    //addToMemberlistFromArraylist
 }

@@ -18,7 +18,7 @@ public class Member{
     //TODO: MemberToString
         //Return member name + age + activity
     public String toString() {
-        return name +";"+ age +";"+ activity +";"+ getMembershipFee() + activity.getPrice();
+        return name +";"+ age +";"+ activity.toString();
     }
 
     public Member (){}
@@ -65,5 +65,9 @@ public class Member{
     }
     public Membership getActivity() {
         return activity;
+    }
+
+    public boolean compareTo(Member m){
+        return m.toString().equals(this.toString());
     }
 }

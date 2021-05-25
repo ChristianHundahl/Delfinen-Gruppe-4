@@ -1,7 +1,9 @@
 package UI;
 //@Emilia
 
+import FileHandler.MemberManager;
 import Memberinformation.*;
+import FileHandler.*;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -18,13 +20,15 @@ public class Menu {
         System.out.println("Press 5 to exit");
     }
 
-    public Member registerNewMemberMenu() throws FileNotFoundException{
+    public Member registerNewMemberMenu(MemberManager mm) throws FileNotFoundException{
         String tempName = "";
         int tempAge = 0;
         Membership newMembership = null;
         String activity = "";
 
         boolean isConfirmed = false;
+        Member member = new Member();
+
         while(!isConfirmed){
             System.out.println("Enter full name: ");
             tempName = in.nextLine();
@@ -70,26 +74,30 @@ public class Menu {
             System.out.println("Name: " + tempName);
             System.out.println("Age: " + tempAge);
             System.out.println(activity);
-            System.out.println();
-            System.out.println("Press 1 to confirm");
-            System.out.println("Press 2 to reenter information");
 
-
-            //ToDo What does the default do?
-            int tempAnswer2 = fetchUserInput();
-            switch (tempAnswer2){
-                case 1:
-                    isConfirmed = true;
-                    break;
-                case 2:
-                    continue;
-                default:
-                    defaultMessage();
+            member.setAge(tempAge);
+            member.setName(tempName);
+            member.setActivity(newMembership);
+            if (mm.memberExists(member)){
+                System.out.println("Member already exists please reenter information");
+            }else {
+                System.out.println();
+                System.out.println("Press 1 to confirm");
+                System.out.println("Press 2 to reenter information");
+                //ToDo What does the default do?
+                int tempAnswer2 = fetchUserInput();
+                switch (tempAnswer2) {
+                    case 1:
+                        isConfirmed = true;
+                        break;
+                    case 2:
+                        continue;
+                    default:
+                        defaultMessage();
+                }
             }
 
         }
-        Member newMember = new Member(tempName, tempAge);
-        newMember.setActivity(newMembership);
         System.out.println("Registration complete.");
 
         boolean goBack = false;
@@ -100,7 +108,7 @@ public class Menu {
                 goBack = true;
             }
         }
-        return newMember;
+        return member;
     }
 
     //ToDo

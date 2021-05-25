@@ -11,17 +11,18 @@ public abstract class Membership {
 
     private double price;
     private String activity;
-    private FileManager fm;
-    Scanner sc;
+    private FileManager fm = new FileManager();
+    Scanner sc = fm.getPriceSc();
 
     public Membership(String activity, double price) throws FileNotFoundException {
         this.activity = activity;
         this.price = price;
-        this.fm = new FileManager();
-        this.sc = fm.getPriceSc();
+
     }
 
-    public Membership(){}
+    public Membership() throws FileNotFoundException {
+
+    }
 
 
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
@@ -38,6 +39,11 @@ public abstract class Membership {
     }
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString(){
+        return activity + ";" + price;
     }
 //Methods:
     //System.out.println("Press 1 to Show projected income");
