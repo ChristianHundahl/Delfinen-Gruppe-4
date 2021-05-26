@@ -1,8 +1,11 @@
 package Memberinformation;
 //@Emilia
 
+import FileHandler.MemberManager;
+
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Member{
@@ -39,10 +42,16 @@ public class Member{
         Junior
         Senior
         Passive
+
     Multiply each category no. of members w/ category price
     System.out.println(Result)*/
     public void showProjectedIncome() throws FileNotFoundException {
-
+        MemberManager newManager = new MemberManager();
+        ArrayList<Member> allMembers = newManager.getMemberlist();
+        //Parse allMembers
+        //Identify activity
+        //get price
+        while (allMembers : allMembers){}
     }
 
     //System.out.println("Press 3 to change prices");
