@@ -51,7 +51,8 @@ public class Member{
         //Parse allMembers
         //Identify activity
         //get price
-        while (allMembers : allMembers){}
+        //while (allMembers : allMembers){
+
     }
 
     //System.out.println("Press 3 to change prices");
