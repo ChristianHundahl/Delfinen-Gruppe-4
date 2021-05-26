@@ -1,7 +1,9 @@
 package Memberinformation;
 //@Emilia
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Junior extends Membership{
 //@Christian
@@ -17,8 +19,10 @@ public class Junior extends Membership{
 
     @Override
     public double readMembershipFeeFromFile() throws FileNotFoundException { //@Christian
-        while(sc.hasNextLine()){
-            String currentLine = sc.nextLine();
+        File membershipPrices = new File("resources/MembershipFeePrices.csv");
+        Scanner readMembershipPrices = new Scanner(membershipPrices);
+        while(readMembershipPrices.hasNextLine()){
+            String currentLine = readMembershipPrices.nextLine();
             String[] lineAsArray = currentLine.split(";");
                 if(lineAsArray[0].equals("Junior")){
                     double juniorPrice = Double.parseDouble(lineAsArray[1]);
@@ -27,5 +31,4 @@ public class Junior extends Membership{
             }
         return this.getPrice();
     }
-
 }

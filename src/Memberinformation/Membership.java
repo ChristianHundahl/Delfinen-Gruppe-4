@@ -3,7 +3,6 @@ package Memberinformation;
 
 import FileHandler.FileManager;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Membership {
@@ -17,13 +16,11 @@ public abstract class Membership {
     public Membership(String activity, double price) throws FileNotFoundException {
         this.activity = activity;
         this.price = price;
-
     }
 
     public Membership() throws FileNotFoundException {
 
     }
-
 
     public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
 
