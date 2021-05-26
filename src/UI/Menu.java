@@ -111,9 +111,11 @@ public class Menu {
         return member;
     }
 
-    //ToDo
     public void manageExistingMemberMenu(){
         System.out.println("Manage members");
+        System.out.println("Press 1 to");
+        System.out.println("Press 2 to delete an existing member");
+        System.out.println("Press 3 to to back to main menu");
     }
 
     public void manageSwimTimesMenu(){
