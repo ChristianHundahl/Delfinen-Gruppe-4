@@ -1,5 +1,5 @@
 package FileHandler;
-//@Christian
+//@Jonatan
 
 import Memberinformation.Member;
 
@@ -34,7 +34,6 @@ public class FileManager {
     public File getMembersFile(){
         return memberInfo;
     }
-
     //Methods
     //addToMemberFile
     public void addToFile(Member member) throws IOException {

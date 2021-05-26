@@ -58,7 +58,6 @@ public class Menu {
                     case 2 -> {
                         newMembership = new Senior();
                         activity = "Senior Membership";
-                        newMembership.readMembershipFeeFromFile(); // Erik har tilføjet dette i CodeLab
                         membershipChosen = true;
                     }
                     case 3 -> {
@@ -75,9 +74,10 @@ public class Menu {
             System.out.println("Age: " + tempAge);
             System.out.println(activity);
 
-            member.setAge(tempAge);
             member.setName(tempName);
+            member.setAge(tempAge);
             member.setActivity(newMembership);
+
             if (mm.memberExists(member)){
                 System.out.println("Member already exists please reenter information");
             }else {
