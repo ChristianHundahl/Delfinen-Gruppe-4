@@ -84,7 +84,7 @@ public class Menu {
                 System.out.println();
                 System.out.println("Press 1 to confirm");
                 System.out.println("Press 2 to reenter information");
-                //ToDo What does the default do?
+
                 int tempAnswer2 = fetchUserInput();
                 switch (tempAnswer2) {
                     case 1:
@@ -93,13 +93,14 @@ public class Menu {
                     case 2:
                         continue;
                     default:
-                        defaultMessage();
+                        defaultMessage(); //Works as case 2
                 }
             }
 
         }
         System.out.println("Registration complete.");
 
+        //ToDO remove??? or change to press1()
         boolean goBack = false;
         System.out.println("Press 1 to return to main menu");
         while (!goBack){
@@ -113,9 +114,13 @@ public class Menu {
 
     public void manageExistingMemberMenu(){
         System.out.println("Manage members");
-        System.out.println("Press 1 to");
-        System.out.println("Press 2 to delete an existing member");
-        System.out.println("Press 3 to to back to main menu");
+        System.out.println("Choose member: ");
+    }
+
+    public void changeOrDeleteMenu(){
+        System.out.println("Press 1 to change member information");
+        System.out.println("Press 2 to delete member");
+        System.out.println("Press 3 to go back");
     }
 
     public void manageSwimTimesMenu(){
@@ -159,7 +164,7 @@ public class Menu {
             }
         }
     }
-
+    //ToDo fix de steder hvor defaultMessage bliver brugt så den ikke spørger om input to gange
     public void defaultMessage(){
         System.out.println("Invalid input. Try again:");
     }

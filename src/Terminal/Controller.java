@@ -17,10 +17,11 @@ public class Controller {
         FileManager fileManager = new FileManager();
 
         boolean exit = false;
+        boolean goBack;
 
         while(!exit){
-            //System.out.println();
             menu.showMainMenu();
+
             int userInput = menu.fetchUserInput();
             switch(userInput){
                 case 1:
@@ -29,16 +30,72 @@ public class Controller {
                     break;
                 case 2:
                     menu.manageExistingMemberMenu();
-                    memberManager.printList();
-                    //TODO valg?
-                    if(!memberManager.isEmpty())
-                        memberManager.removeMember(menu.fetchUserInput());
+
+
+                    if (!memberManager.isEmpty()){
+                        goBack = false;
+                        while(!goBack){
+                            memberManager.printList();
+                            int chosenMember = menu.fetchUserInput(); //ToDO fix så man ikke kan vælge tal uden for listen
+
+                            menu.changeOrDeleteMenu();
+                            userInput = menu.fetchUserInput();
+                            switch(userInput){
+                                case 1:
+                                    System.out.println("Changing... :3 Going back to main menu.");
+                                    goBack = true;
+                                    break;
+                                case 2:
+                                    memberManager.removeMember(chosenMember);
+                                    System.out.println("Member deleted. Going back to main menu.");
+                                    goBack = true;
+                                    break;
+                                case 3:
+                                    goBack = true;
+                                    break;
+                                default:
+                                    menu.defaultMessage(); //Går tilbage til choose member. ret while loop?
+                                    break;
+                            }
+                        }
+
+
+                        /*
+                        int chosenMember = menu.fetchUserInput();
+
+                        menu.changeOrDeleteMenu();
+                        userInput = menu.fetchUserInput();
+                        switch(userInput){
+                            case 1:
+                                System.out.println("Changing... :3 Going back to main menu.");
+                                goBack = true;
+                                break;
+                            case 2:
+                                memberManager.removeMember(chosenMember);
+                                System.out.println("Member deleted. Going back to main menu.");
+                                goBack = true;
+                                break;
+                            case 3:
+                                goBack = true;
+                                break;
+                            default:
+                                menu.defaultMessage();
+                                break;
+                        }
+
+                         */
+                    }
+                    else{
+                        System.out.println("Going back to main menu...");
+                        goBack = true;
+                        break;
+                    }
                     break;
                 case 3:
                     menu.manageSwimTimesMenu();
                     break;
                 case 4:
-                    boolean goBack = false;
+                    goBack = false;
                     while(!goBack) {
                         menu.showManageEconomicsMenu();
                         userInput = menu.fetchUserInput();
