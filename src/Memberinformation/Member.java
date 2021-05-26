@@ -1,6 +1,10 @@
 package Memberinformation;
 //@Emilia
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Member{
 //@Christian
     private String name;
@@ -21,7 +25,6 @@ public class Member{
     public Member (){}
 
     public double getMembershipFee(){//if member age 60+ && !passive = 25% discount
-        System.out.println(activity.getPrice());
         if (this.age >= 60 && !this.activity.getActivity().equalsIgnoreCase("passive")){//Read up on
             return this.activity.getPrice() * 0.75;
         }
@@ -29,6 +32,23 @@ public class Member{
             return this.activity.getPrice();
         }
     }
+    //Methods:
+    //System.out.println("Press 1 to Show projected income");
+    /*Read nop. of members from file
+        Spilt file into:
+        Junior
+        Senior
+        Passive
+    Multiply each category no. of members w/ category price
+    System.out.println(Result)*/
+    public void showProjectedIncome() throws FileNotFoundException {
+
+    }
+
+    //System.out.println("Press 3 to change prices");
+    /*Read file
+     * Show current prices
+     * Take input to change prices from user*/
 
     public void setName(String name) {
         this.name = name;
