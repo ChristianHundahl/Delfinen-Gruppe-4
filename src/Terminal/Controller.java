@@ -35,9 +35,10 @@ public class Controller {
                     if (!memberManager.isEmpty()){
                         goBack = false;
                         while(!goBack){
-                            memberManager.printList();
+                            memberManager.printList(); //Add +1 to index
                             int chosenMember = menu.fetchUserInput(); //ToDO fix så man ikke kan vælge tal uden for listen
 
+                            //Add while loop here
                             menu.changeOrDeleteMenu();
                             userInput = menu.fetchUserInput();
                             switch(userInput){

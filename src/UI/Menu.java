@@ -99,16 +99,6 @@ public class Menu {
 
         }
         System.out.println("Registration complete.");
-
-        //ToDO remove??? or change to press1()
-        boolean goBack = false;
-        System.out.println("Press 1 to return to main menu");
-        while (!goBack){
-            int answer = fetchUserInput();
-            if (answer == 1){
-                goBack = true;
-            }
-        }
         return member;
     }
 
@@ -135,7 +125,7 @@ public class Menu {
         press1();
     }
 
-    public void press1(){ //Kinda awkward when a non-integer is entered
+    public void press1(){
         int userInput = fetchUserInput();
         while (userInput != 1){
             userInput = fetchUserInput();
@@ -164,7 +154,7 @@ public class Menu {
             }
         }
     }
-    //ToDo fix de steder hvor defaultMessage bliver brugt så den ikke spørger om input to gange
+
     public void defaultMessage(){
         System.out.println("Invalid input. Try again:");
     }
