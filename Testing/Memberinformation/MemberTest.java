@@ -1,13 +1,12 @@
 package Memberinformation;
-
 import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.*;
-
+//@Christian
 class MemberTest {
 
     @Test
-    void getMembershipFee() throws FileNotFoundException {
+    void getMembershipFee() throws FileNotFoundException { //@Christian
         //ARRANGE
         Membership testMembership = new Senior("senior", 1600);
         Member testMember = new Member("Bob", 59);
