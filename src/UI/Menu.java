@@ -154,6 +154,7 @@ public class Menu {
             System.out.println("Enter full name: ");
             newName = in.nextLine();
             if(newName.equals("")){
+                System.out.println("No input. Try again.");
                 continue;
             }
             else{
@@ -168,9 +169,34 @@ public class Menu {
         return fetchUserInput();
     }
 
-    public Membership changeMembership(){
-        //ToDO
-        return null;
+    public Membership changeMembership() throws FileNotFoundException {
+        System.out.println("Choose membership:");
+        System.out.println("Press 1 for Junior membership");
+        System.out.println("Press 2 for Senior membership");
+        System.out.println("Press 3 for Passive membership");
+
+        Membership newMembership = null;
+        boolean membershipChosen = false;
+        while (!membershipChosen) {
+            int tempAnswer = fetchUserInput();
+
+            switch (tempAnswer) {
+                case 1 -> {
+                    newMembership = new Junior();
+                    membershipChosen = true;
+                }
+                case 2 -> {
+                    newMembership = new Senior();
+                    membershipChosen = true;
+                }
+                case 3 -> {
+                    newMembership = new Passive();
+                    membershipChosen = true;
+                }
+                default -> defaultMessage();
+            }
+        }
+        return newMembership;
     }
 
     public void doneGoingBack(){
