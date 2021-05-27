@@ -20,6 +20,5 @@ class ShowProjectedIncomeTest {
 
         //ASSERT
         assertEquals(testMember.showProjectedIncome(), expectedTotalIncome);
-
     }
 }
