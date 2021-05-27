@@ -3,7 +3,6 @@ package UI;
 
 import FileHandler.MemberManager;
 import Memberinformation.*;
-import FileHandler.*;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
