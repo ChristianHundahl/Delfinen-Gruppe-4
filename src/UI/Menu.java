@@ -40,7 +40,7 @@ public class Menu {
             System.out.println("Enter age: ");
             tempAge = fetchUserInput();
 
-            System.out.println("Choose membership:"); //Automate senior/junior???
+            System.out.println("Choose membership:");
             System.out.println("Press 1 for Junior membership");
             System.out.println("Press 2 for Senior membership");
             System.out.println("Press 3 for Passive membership");
@@ -93,7 +93,7 @@ public class Menu {
                     case 2:
                         continue;
                     default:
-                        defaultMessage(); //Works as case 2
+                        defaultMessage(); //Works like case 2
                 }
             }
 
@@ -110,7 +110,7 @@ public class Menu {
     public void changeOrDeleteMenu(){
         System.out.println("Press 1 to change member information");
         System.out.println("Press 2 to delete member");
-        System.out.println("Press 3 to go back");
+        System.out.println("Press 3 to go back to main menu");
     }
 
     public void manageSwimTimesMenu(){
@@ -138,6 +138,43 @@ public class Menu {
         System.out.println("Press 2 to show members in arrears");
         System.out.println("Press 3 to change prices");
         System.out.println("Press 4 to to back to main menu");
+    }
+
+    public void showChangeInformationMenu(){
+        System.out.println("Press 1 to change name");
+        System.out.println("Press 2 to change age");
+        System.out.println("Press 3 to assign new activity");
+        System.out.println("Press 4 to go back");
+    }
+
+    public String changeName(){
+        boolean empty = true;
+        String newName = "";
+        while(empty){
+            System.out.println("Enter full name: ");
+            newName = in.nextLine();
+            if(newName.equals("")){
+                continue;
+            }
+            else{
+                empty = false;
+            }
+        }
+        return newName;
+    }
+
+    public int changeAge(){
+        System.out.println("Enter age: ");
+        return fetchUserInput();
+    }
+
+    public Membership changeMembership(){
+        //ToDO
+        return null;
+    }
+
+    public void doneGoingBack(){
+        System.out.println("Done. Going back...");
     }
 
     public int fetchUserInput (){

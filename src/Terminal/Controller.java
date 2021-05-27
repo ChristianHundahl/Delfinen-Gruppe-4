@@ -3,6 +3,7 @@ package Terminal;
 import FileHandler.FileManager;
 import FileHandler.MemberManager;
 import Memberinformation.Member;
+import Memberinformation.Membership;
 import UI.Menu;
 
 import java.io.FileNotFoundException;
@@ -31,7 +32,6 @@ public class Controller {
                 case 2:
                     menu.manageExistingMemberMenu();
 
-
                     if (!memberManager.isEmpty()){
                         goBack = false;
                         while(!goBack){
@@ -44,10 +44,38 @@ public class Controller {
                                 userInput = menu.fetchUserInput();
                                 switch(userInput){
                                     case 1:
-                                        //No method yet. Filler print statement
-                                        System.out.println("Changing... :3 Going back to main menu.");
-                                        goBack = true;
-                                        idkAnymore = true;
+                                        boolean goBackToChangeDelete = false;
+                                        while(!goBackToChangeDelete){
+                                            menu.showChangeInformationMenu();
+                                            userInput = menu.fetchUserInput();
+                                            switch(userInput){
+                                                case 1:
+                                                    String newName = menu.changeName();
+                                                    memberManager.changeMemberName(chosenMember,newName);
+                                                    menu.doneGoingBack();
+                                                    //goBackToChangeDelete = true;
+                                                    break;
+                                                case 2:
+                                                    int newAge = menu.changeAge();
+                                                    memberManager.changeMemberAge(chosenMember,newAge);
+                                                    menu.doneGoingBack();
+                                                    //goBackToChangeDelete = true;
+                                                    break;
+                                                case 3:
+                                                    Membership newActivity = menu.changeMembership();
+                                                    memberManager.changeMemberActivity(chosenMember,newActivity);
+                                                    menu.doneGoingBack();
+                                                    //goBackToChangeDelete = true;
+                                                case 4:
+                                                    goBackToChangeDelete = true;
+                                                    break;
+                                                default:
+                                                    menu.defaultMessage();
+                                                    break;
+                                            }
+                                        }
+                                        //goBack = true;
+                                        //idkAnymore = true;
                                         break;
                                     case 2:
                                         memberManager.removeMember(chosenMember);
