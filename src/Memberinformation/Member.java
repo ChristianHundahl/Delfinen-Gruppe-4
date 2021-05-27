@@ -10,8 +10,6 @@ public class Member{
 //@Christian
     private String name;
     private int age;
-    private boolean isOver60;
-    private boolean isInArrears;
     private Membership activity;
 
     public Member(String name, int age){
@@ -70,17 +68,6 @@ public class Member{
     }
     public int getAge() {
         return age;
-    }
-
-    public void setOver60() {
-
-    }
-    public boolean getOver60(){
-        return isOver60;
-    }
-
-    public void setInArrears(boolean inArrears) {
-        isInArrears = inArrears;
     }
 
     public void setActivity(Membership activity) {
