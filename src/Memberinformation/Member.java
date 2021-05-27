@@ -35,16 +35,7 @@ public class Member{
             return this.activity.getPrice();
         }
     }
-    //Methods:
-    //System.out.println("Press 1 to Show projected income");
-    /*Read nop. of members from file
-        Spilt file into:
-        Junior
-        Senior
-        Passive
 
-    Multiply each category no. of members w/ category price
-    System.out.println(Result)*/
     public void showProjectedIncome() throws FileNotFoundException { //@Christian
         MemberManager newManager = new MemberManager();
         ArrayList<Member> allMembers = newManager.getMemberlist();
@@ -63,7 +54,7 @@ public class Member{
         System.out.println("Total projected income from Junior members: " + projectedIncomeJunior);
         System.out.println("Total projected income from Senior members: " + projectedIncomeSenior);
         System.out.println("Total projected income from Passive members: " + projectedIncomePassives);
-        System.out.println("Total projected income from all members: " + projectedIncomePassives + projectedIncomeJunior + projectedIncomeSenior);
+        System.out.println("Total projected income from all members: " + (projectedIncomePassives + projectedIncomeJunior + projectedIncomeSenior));
     }
 
     public void setName(String name) {
