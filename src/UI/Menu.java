@@ -119,7 +119,7 @@ public class Menu {
         press1();
     }
 
-    public void comingSpring2022Menu(){
+    public void changePriceMenu(){
         System.out.println("Coming spring 2022!");
         System.out.println("Press 1 to go back");
         press1();

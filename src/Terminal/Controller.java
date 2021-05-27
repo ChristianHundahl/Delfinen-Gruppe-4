@@ -1,13 +1,13 @@
 package Terminal;
 
-import FileHandler.FileManager;
 import FileHandler.MemberManager;
 import Memberinformation.Member;
 import Memberinformation.Membership;
 import UI.Menu;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import static Memberinformation.Member.showProjectedIncome;
 
 //@Emilia
 
@@ -15,7 +15,6 @@ public class Controller {
     public static void main(String[] args) throws IOException {
         Menu menu = new Menu();
         MemberManager memberManager = new MemberManager();
-        FileManager fileManager = new FileManager();
 
         boolean exit = false;
         boolean goBack;
@@ -53,19 +52,16 @@ public class Controller {
                                                     String newName = menu.changeName();
                                                     memberManager.changeMemberName(chosenMember,newName);
                                                     menu.doneGoingBack();
-                                                    //goBackToChangeDelete = true;
                                                     break;
                                                 case 2:
                                                     int newAge = menu.changeAge();
                                                     memberManager.changeMemberAge(chosenMember,newAge);
                                                     menu.doneGoingBack();
-                                                    //goBackToChangeDelete = true;
                                                     break;
                                                 case 3:
                                                     Membership newActivity = menu.changeMembership();
                                                     memberManager.changeMemberActivity(chosenMember,newActivity);
                                                     menu.doneGoingBack();
-                                                    //goBackToChangeDelete = true;
                                                 case 4:
                                                     goBackToChangeDelete = true;
                                                     break;
@@ -74,8 +70,6 @@ public class Controller {
                                                     break;
                                             }
                                         }
-                                        //goBack = true;
-                                        //idkAnymore = true;
                                         break;
                                     case 2:
                                         memberManager.removeMember(chosenMember);
@@ -96,7 +90,6 @@ public class Controller {
                     }
                     else{
                         System.out.println("Going back to main menu...");
-                        goBack = true;
                         break;
                     }
                     break;
@@ -110,13 +103,13 @@ public class Controller {
                         userInput = menu.fetchUserInput();
                         switch (userInput) {
                             case 1:
-                                menu.comingSpring2022Menu(); //Show projected income
+                                showProjectedIncome();
                                 break;
                             case 2:
                                 menu.showMembersInArrears();//Show members in arrears
                                 break;
                             case 3:
-                                menu.comingSpring2022Menu(); //Change prices
+                                menu.changePriceMenu(); //Change prices
                                 break;
                             case 4:
                                 goBack = true;
