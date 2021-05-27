@@ -1,19 +1,13 @@
 package Memberinformation;
 //@Emilia
 
-import FileHandler.FileManager;
-
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public abstract class Membership {
 //@Christian
 
     private double price;
     private String activity;
-    private FileManager fm = new FileManager();
-    Scanner sc = fm.getPriceSc();
 
     public Membership(String activity, double price) throws FileNotFoundException { //@Christian
         this.activity = activity;
