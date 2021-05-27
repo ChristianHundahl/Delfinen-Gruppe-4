@@ -14,38 +14,40 @@ public class FileManager {
 
     static {
         try {
-            writer = new FileWriter("resources/Members.csv",true);
+            writer = new FileWriter("resources/Members.csv", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     //readFile
     private Scanner memberSc = new Scanner(memberInfo);
     private Scanner priceSc = new Scanner(membershipPrices);
 
     //Empty constructor
-    public FileManager() throws FileNotFoundException {}
-    //Getter
-    public Scanner getPriceSc(){
-        return priceSc; }
+    public FileManager() throws FileNotFoundException {
+    }
 
-    public File getMembersFile(){
+    //Getter
+    public Scanner getPriceSc() {
+        return priceSc;
+    }
+
+    public File getMembersFile() {
         return memberInfo;
     }
+
     //Methods
     //addToMemberFile
-    public void addToFile(Member member) throws IOException {
-            writer.write(member.toString()+System.lineSeparator());
-            writer.flush();
-    }
-    public void removeMemberFromFile(ArrayList<Member> members) throws IOException {
-        FileWriter writer = new FileWriter("resources/Members.csv");
-        for (Member m : members) {
-            writer.write(m.toString() + System.lineSeparator());
-            writer.flush();
-        }
+    private void addToFile(Member member) throws IOException {
+        writer.write(member.toString() + System.lineSeparator());
+        writer.flush();
     }
 
+    public void updateFile(ArrayList<Member> members) throws IOException {
+        FileWriter writer = new FileWriter("resources/Members.csv");
+        for (Member m : members) {
+            addToFile(m);
+        }
+    }
 }

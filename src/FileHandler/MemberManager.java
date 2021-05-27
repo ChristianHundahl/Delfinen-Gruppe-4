@@ -28,7 +28,7 @@ public class MemberManager {
             return;
         try {
             memberlist.add(m);
-            fileManager.addToFile(m);
+            fileManager.updateFile(memberlist);
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         } catch (IOException e) {
@@ -91,31 +91,26 @@ public class MemberManager {
         if (!(x < memberlist.size()))
             return;
         memberlist.remove(x);
-        fileManager.removeMemberFromFile(memberlist);
+        fileManager.updateFile(memberlist);
     }
 
-    public Member selectMember(int x) {
-        Member member = memberlist.get(x - 1);
-        System.out.println("You have chosen" + member.toString());
-        return member;
-    }
 
-    public void changeMemberName(int x, Member m, String newName) throws IOException {
-        removeMember(x);
+    public void changeMemberName(int x, String newName) throws IOException {
+        Member m = memberlist.get(x);
         m.setName(newName);
         addToMemberList(m);
     }
 
-    public void changeMemberAge(int x, Member m, int newAge) throws IOException {
-        removeMember(x);
+    public void changeMemberAge(int x, int newAge) throws IOException {
+        Member m = memberlist.get(x);
         m.setAge(newAge);
         addToMemberList(m);
     }
 
-    public void changeMemberActivity(int x, Member m, Membership newMemberShip) throws IOException {
-        removeMember(x);
-        m.setActivity(newMemberShip);
-        addToMemberList(m);
+    public void changeMemberActivity(int x, Membership newMemberShip) throws IOException {
+       Member m = memberlist.get(x);
+       m.setActivity(newMemberShip);
+       addToMemberList(m);
     }
 
 }
