@@ -39,7 +39,6 @@ public class Controller {
                             memberManager.printList(); //Add +1 to index
                             int chosenMember = menu.fetchUserInput();
 
-
                             boolean idkAnymore = false;
                             while(!idkAnymore){
                                 if(!(chosenMember<memberArrayList.size())) {

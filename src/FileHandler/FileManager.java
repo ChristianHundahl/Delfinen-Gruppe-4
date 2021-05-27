@@ -21,7 +21,6 @@ public class FileManager {
     }
 
     //readFile
-    private Scanner memberSc = new Scanner(memberInfo);
     private Scanner priceSc = new Scanner(membershipPrices);
 
     //Empty constructor
