@@ -4,13 +4,16 @@ import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberTest {//@Christian
+    Membership testMembership = new Senior("senior", 1600);
+    Member testMember = new Member("Bob", 59);
+    Member testMember2 = new Member("Rob", 61);
+
+    MemberTest() throws FileNotFoundException {
+    }
 
     @Test
     void getMembershipFee() throws FileNotFoundException { //@Christian
         //ARRANGE
-        Membership testMembership = new Senior("senior", 1600);
-        Member testMember = new Member("Bob", 59);
-        Member testMember2 = new Member("Rob", 61);
         testMember.setActivity(testMembership);
         testMember2.setActivity(testMembership);
 
@@ -24,5 +27,10 @@ class MemberTest {//@Christian
         //ASSERT
         assertEquals(expectedNoDiscount, actual);
         assertEquals(expectedDiscount, actual2);
+    }
+
+    @Test
+    void showProtectedIncomeTest() throws FileNotFoundException {
+        testMember.showProjectedIncome();
     }
 }

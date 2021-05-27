@@ -48,22 +48,23 @@ public class Member{
     public void showProjectedIncome() throws FileNotFoundException { //@Christian
         MemberManager newManager = new MemberManager();
         ArrayList<Member> allMembers = newManager.getMemberlist();
+        double projectedIncomeJunior = 0;
+        double projectedIncomeSenior = 0;
+        double projectedIncomePassives = 0;
         //Parse allMembers
-
         for (int i = 0; i < allMembers.size(); i++) {
-            //Member.getActivity();
-            //Identify activity
-            //get price
-
-
+            Member currentMember = allMembers.get(i);
+            switch(currentMember.getActivity().getActivity()){ //Identify activity
+                case "Junior" -> projectedIncomeJunior = projectedIncomeJunior + currentMember.getMembershipFee();
+                case "Senior" -> projectedIncomeSenior = projectedIncomeSenior + currentMember.getMembershipFee();
+                case "Passive" -> projectedIncomePassives = projectedIncomePassives + currentMember.getMembershipFee();
+            }
         }
-
+        System.out.println("Total projected income from Junior members: " + projectedIncomeJunior);
+        System.out.println("Total projected income from Senior members: " + projectedIncomeSenior);
+        System.out.println("Total projected income from Passive members: " + projectedIncomePassives);
+        System.out.println("Total projected income from all members: " + projectedIncomePassives + projectedIncomeJunior + projectedIncomeSenior);
     }
-
-    //System.out.println("Press 3 to change prices");
-    /*Read file
-     * Show current prices
-     * Take input to change prices from user*/
 
     public void setName(String name) {
         this.name = name;

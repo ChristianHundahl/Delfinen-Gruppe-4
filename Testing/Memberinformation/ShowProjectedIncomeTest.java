@@ -3,19 +3,20 @@ package Memberinformation;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShowProjectedIncomeTest {
 
     @Test
-    void showProjectedIncome() {
-
+    void showProjectedIncome() throws FileNotFoundException {
         //ARRANGE
-        File testFile = new File("resources/Members.csv");
+        Member testMember = new Member();
 
         //ACT
-        showProjectedIncome();
+        testMember.showProjectedIncome();
+
         //ASSERT
     }
 }
