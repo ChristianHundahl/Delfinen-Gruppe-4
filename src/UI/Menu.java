@@ -208,13 +208,20 @@ public class Menu {
 
         while (true){
             String input = in.nextLine();
+
             try{
                 userInput = Integer.parseInt(input);
-                return userInput;
+                if(userInput >= 0){
+                    return userInput;
+                }
+                else{
+                    defaultMessage();
+                }
             }
             catch (Exception e){
                 defaultMessage();
             }
+
         }
     }
 
