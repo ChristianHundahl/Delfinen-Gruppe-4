@@ -3,10 +3,8 @@ package Memberinformation;
 
 import FileHandler.MemberManager;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Member{
 //@Christian
@@ -36,7 +34,7 @@ public class Member{
         }
     }
 
-    public static void showProjectedIncome() throws FileNotFoundException { //@Christian
+    public static double showProjectedIncome() throws FileNotFoundException { //@Christian
         MemberManager newManager = new MemberManager();
         ArrayList<Member> allMembers = newManager.getMemberlist();
         double projectedIncomeJunior = 0;
@@ -51,10 +49,13 @@ public class Member{
                 case "Passive" -> projectedIncomePassives = projectedIncomePassives + currentMember.getMembershipFee();
             }
         }
+        double projectedTotalIncome = (projectedIncomePassives + projectedIncomeJunior + projectedIncomeSenior);
         System.out.println("Total projected income from Junior members: " + projectedIncomeJunior);
         System.out.println("Total projected income from Senior members: " + projectedIncomeSenior);
         System.out.println("Total projected income from Passive members: " + projectedIncomePassives);
-        System.out.println("Total projected income from all members: " + (projectedIncomePassives + projectedIncomeJunior + projectedIncomeSenior));
+        System.out.println("Total projected income from all members: " + projectedTotalIncome);
+
+        return projectedTotalIncome;
     }
 
     public void setName(String name) {

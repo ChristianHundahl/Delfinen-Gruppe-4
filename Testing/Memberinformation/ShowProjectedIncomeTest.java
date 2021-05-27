@@ -16,7 +16,10 @@ class ShowProjectedIncomeTest {
 
         //ACT
         testMember.showProjectedIncome();
+        double expectedTotalIncome = 9500;
 
         //ASSERT
+        assertEquals(testMember.showProjectedIncome(), expectedTotalIncome);
+
     }
 }
