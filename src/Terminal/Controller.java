@@ -37,14 +37,13 @@ public class Controller {
                         goBack = false;
                         while(!goBack){
                             memberManager.printList(); //Add +1 to index
-                            int chosenMember = menu.fetchUserInput();//ToDO fix så man ikke kan vælge tal uden for listen
+                            int chosenMember = menu.fetchUserInput();
 
 
                             boolean idkAnymore = false;
                             while(!idkAnymore){
                                 if(!(chosenMember<memberArrayList.size())) {
                                     menu.defaultMessage();
-                                    System.out.println();
                                     break;
                                 }
 
