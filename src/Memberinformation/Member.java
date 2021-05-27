@@ -36,7 +36,7 @@ public class Member{
         }
     }
 
-    public void showProjectedIncome() throws FileNotFoundException { //@Christian
+    public static void showProjectedIncome() throws FileNotFoundException { //@Christian
         MemberManager newManager = new MemberManager();
         ArrayList<Member> allMembers = newManager.getMemberlist();
         double projectedIncomeJunior = 0;
