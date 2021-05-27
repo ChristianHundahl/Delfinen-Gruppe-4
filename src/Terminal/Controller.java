@@ -6,6 +6,7 @@ import Memberinformation.Membership;
 import UI.Menu;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static Memberinformation.Member.showProjectedIncome;
 
@@ -15,6 +16,7 @@ public class Controller {
     public static void main(String[] args) throws IOException {
         Menu menu = new Menu();
         MemberManager memberManager = new MemberManager();
+        ArrayList<Member> memberArrayList = memberManager.getMemberlist();
 
         boolean exit = false;
         boolean goBack;
@@ -35,10 +37,17 @@ public class Controller {
                         goBack = false;
                         while(!goBack){
                             memberManager.printList(); //Add +1 to index
-                            int chosenMember = menu.fetchUserInput(); //ToDO fix så man ikke kan vælge tal uden for listen
+                            int chosenMember = menu.fetchUserInput();//ToDO fix så man ikke kan vælge tal uden for listen
+
 
                             boolean idkAnymore = false;
                             while(!idkAnymore){
+                                if(!(chosenMember<memberArrayList.size())) {
+                                    menu.defaultMessage();
+                                    System.out.println();
+                                    break;
+                                }
+
                                 menu.changeOrDeleteMenu();
                                 userInput = menu.fetchUserInput();
                                 switch(userInput){
