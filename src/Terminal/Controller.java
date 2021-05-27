@@ -38,53 +38,33 @@ public class Controller {
                             memberManager.printList(); //Add +1 to index
                             int chosenMember = menu.fetchUserInput(); //ToDO fix så man ikke kan vælge tal uden for listen
 
-                            //Add while loop here
-                            menu.changeOrDeleteMenu();
-                            userInput = menu.fetchUserInput();
-                            switch(userInput){
-                                case 1:
-                                    System.out.println("Changing... :3 Going back to main menu.");
-                                    goBack = true;
-                                    break;
-                                case 2:
-                                    memberManager.removeMember(chosenMember);
-                                    System.out.println("Member deleted. Going back to main menu.");
-                                    goBack = true;
-                                    break;
-                                case 3:
-                                    goBack = true;
-                                    break;
-                                default:
-                                    menu.defaultMessage(); //Går tilbage til choose member. ret while loop?
-                                    break;
+                            boolean idkAnymore = false;
+                            while(!idkAnymore){
+                                menu.changeOrDeleteMenu();
+                                userInput = menu.fetchUserInput();
+                                switch(userInput){
+                                    case 1:
+                                        //No method yet. Filler print statement
+                                        System.out.println("Changing... :3 Going back to main menu.");
+                                        goBack = true;
+                                        idkAnymore = true;
+                                        break;
+                                    case 2:
+                                        memberManager.removeMember(chosenMember);
+                                        System.out.println("Member deleted. Going back to main menu.");
+                                        goBack = true;
+                                        idkAnymore = true;
+                                        break;
+                                    case 3:
+                                        goBack = true;
+                                        idkAnymore = true;
+                                        break;
+                                    default:
+                                        menu.defaultMessage();
+                                        break;
+                                }
                             }
                         }
-
-
-                        /*
-                        int chosenMember = menu.fetchUserInput();
-
-                        menu.changeOrDeleteMenu();
-                        userInput = menu.fetchUserInput();
-                        switch(userInput){
-                            case 1:
-                                System.out.println("Changing... :3 Going back to main menu.");
-                                goBack = true;
-                                break;
-                            case 2:
-                                memberManager.removeMember(chosenMember);
-                                System.out.println("Member deleted. Going back to main menu.");
-                                goBack = true;
-                                break;
-                            case 3:
-                                goBack = true;
-                                break;
-                            default:
-                                menu.defaultMessage();
-                                break;
-                        }
-
-                         */
                     }
                     else{
                         System.out.println("Going back to main menu...");
