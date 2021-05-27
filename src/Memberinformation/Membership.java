@@ -15,7 +15,7 @@ public abstract class Membership {
     private FileManager fm = new FileManager();
     Scanner sc = fm.getPriceSc();
 
-    public Membership(String activity, double price) throws FileNotFoundException {
+    public Membership(String activity, double price) throws FileNotFoundException { //@Christian
         this.activity = activity;
         this.price = price;
     }
@@ -24,7 +24,7 @@ public abstract class Membership {
 
     }
 
-    public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//Each subclass @Overrides
+    public abstract double readMembershipFeeFromFile() throws FileNotFoundException;//@Christian
 
     public void setActivity(String activity) {
         this.activity = activity;

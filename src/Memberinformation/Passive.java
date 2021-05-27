@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Passive extends Membership{
 //@Christian
-    public Passive(String activity, double price) throws FileNotFoundException {
+    public Passive(String activity, double price) throws FileNotFoundException { //@Christian
         super(activity, price);
         this.setActivity("Passive");
     }
 
-    public Passive() throws FileNotFoundException{
+    public Passive() throws FileNotFoundException{ //@Christian
         readMembershipFeeFromFile();
         this.setActivity("Passive");
     }

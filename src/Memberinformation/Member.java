@@ -23,11 +23,11 @@ public class Member{
 
     public String toString() {
         return name +";"+ age +";"+ activity.toString();
-    }
+    } //@Christian
 
     public Member (){}
 
-    public double getMembershipFee(){//if member age 60+ && !passive = 25% discount
+    public double getMembershipFee(){//if member age 60+ && !passive = 25% discount //@Christian
         if (this.age >= 60 && !this.activity.getActivity().equalsIgnoreCase("passive")){//Read up on
             return this.activity.getPrice() * 0.75;
         }
@@ -45,13 +45,19 @@ public class Member{
 
     Multiply each category no. of members w/ category price
     System.out.println(Result)*/
-    public void showProjectedIncome() throws FileNotFoundException {
+    public void showProjectedIncome() throws FileNotFoundException { //@Christian
         MemberManager newManager = new MemberManager();
         ArrayList<Member> allMembers = newManager.getMemberlist();
         //Parse allMembers
-        //Identify activity
-        //get price
-        //while (allMembers : allMembers){}
+
+        for (int i = 0; i < allMembers.size(); i++) {
+            //Member.getActivity();
+            //Identify activity
+            //get price
+
+
+        }
+
     }
 
     //System.out.println("Press 3 to change prices");

@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class Junior extends Membership{
 //@Christian
-    public Junior(String activity, double price) throws FileNotFoundException {
+    public Junior(String activity, double price) throws FileNotFoundException { //@Christian
         super(activity, price);
         this.setActivity("Junior");
     }
 
-    public Junior() throws FileNotFoundException{
+    public Junior() throws FileNotFoundException{ //@Christian
         readMembershipFeeFromFile();
         this.setActivity("Junior");
     }
